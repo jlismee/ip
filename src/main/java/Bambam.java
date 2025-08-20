@@ -59,6 +59,10 @@ public class Bambam {
                     }
                     messages.printAddTask(new Events(eventDetails[0], eventTimeDetails[0], eventTimeDetails[1]));
                     break;
+                case "delete":
+                    taskNumber = Integer.parseInt(commands[1]);
+                    messages.printDeleteTask(taskNumber - 1);
+                    break;
                 default:
                     throw new BambamException("Sorry I don't get what you're saying, please provide me with relevant tasks");
             }

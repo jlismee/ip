@@ -30,11 +30,20 @@ public class Messages {
         taskList.addTaskToList(newTask);
         System.out.println("Got it. I've added this task:");
         System.out.println("    " + newTask.printTaskString());
-        System.out.println("Now you have " + taskList.getTaskCounter() + " tasks in the list.\n");
+        System.out.println("Now you have " + taskList.getTaskSize() + " tasks in the list.\n");
+    }
+
+    // function to print details when deleting task
+    public void printDeleteTask(int index) throws BambamException {
+        Task task = taskList.getTask(index);
+        taskList.deleteTaskFromList(index);
+        System.out.println("Noted. I've removed this task:");
+        System.out.println("    " + task.printTaskString());
+        System.out.println("Now you have " + taskList.getTaskSize() + " tasks in the list.\n");
     }
 
     // function to print list of tasks
-    public void printTaskList() {
+    public void printTaskList() throws BambamException {
         taskList.printList();
         System.out.println();
     }
