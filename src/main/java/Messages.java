@@ -25,9 +25,17 @@ public class Messages {
         return scanner.nextLine();
     }
 
+    // function to print details when adding task
+    public void printAddTask(Task newTask) {
+        taskList.addTaskToList(newTask);
+        System.out.println("Got it. I've added this task:");
+        System.out.println(" " + newTask.printTaskString());
+        System.out.println("Now you have " + taskList.getTaskCounter() + " tasks in the list.\n");
+    }
+
     // function to print inputs from users
     public void printInputs(String input) {
-        taskList.addTaskToList(input);
+        taskList.addTaskToList(new Task(input));
         System.out.println("added: " + input + "\n");
     }
 

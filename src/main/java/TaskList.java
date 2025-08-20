@@ -7,9 +7,13 @@ public class TaskList {
         this.taskCounter = 0;
     }
 
+    // function to get number of tasks
+    public int getTaskCounter() {
+        return taskCounter;
+    }
+
     // function to add task to the task list
-    public void addTaskToList(String task) {
-        Task newTask = new Task(task);
+    public void addTaskToList(Task newTask) {
         taskList[taskCounter] = newTask;
         taskCounter++;
     }
