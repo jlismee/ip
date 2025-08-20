@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Messages {
     public String CHATBOT_NAME = "Bambam"; // chatbot name is constant
     Scanner scanner = new Scanner(System.in); // Scanner for inputs from users
-    private Task tasks;
+    private TaskList taskList;
 
     public Messages() {
-        this.tasks = new Task();
+        this.taskList = new TaskList();
     }
 
     // function to print greetings to users
@@ -27,13 +27,13 @@ public class Messages {
 
     // function to print inputs from users
     public void printInputs(String input) {
-        tasks.addTaskToList(input);
+        taskList.addTaskToList(input);
         System.out.println("added: " + input + "\n");
     }
 
     // function to print list of tasks
     public void printTaskList() {
-        tasks.printList();
+        taskList.printList();
         System.out.println();
     }
 }

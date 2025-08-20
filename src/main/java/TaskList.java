@@ -1,8 +1,8 @@
-public class Task {
+public class TaskList {
     private String[] taskList;
     private int taskCounter;
 
-    public Task() {
+    public TaskList() {
         this.taskList = new String[100];
         this.taskCounter = 0;
     }
