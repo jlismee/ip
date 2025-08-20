@@ -14,6 +14,31 @@ public class TaskList {
         taskCounter++;
     }
 
+    // function mark task as done using index
+    public void markTaskAsDone(int index) {
+        if (index > taskCounter) {
+            System.out.println("Invalid Task Number");
+        } else {
+            taskList[index].markAsDone();
+            System.out.println(" " + taskList[index].printTaskString() + "\n");
+        }
+    }
+
+    // function mark task as undone using index
+    public void markTaskAsUndone(int index) {
+        if (index > taskCounter) {
+            System.out.println("Invalid Task Number");
+        } else {
+            taskList[index].markAsUndone();
+            System.out.println(" " + taskList[index].printTaskString() + "\n");
+        }
+    }
+
+    // function to print individual task status
+    public void printTaskStatus(int index) {
+        taskList[index].printTaskString();
+    }
+
     // function to print list of tasks
     public void printList() {
         System.out.println("Here are the tasks in your list: ");

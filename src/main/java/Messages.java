@@ -36,4 +36,16 @@ public class Messages {
         taskList.printList();
         System.out.println();
     }
+
+    // function to print action of mark task as done
+    public void printTaskDone(int index) {
+        System.out.println("Nice! I've marked this task as done:");
+        taskList.markTaskAsDone(index);
+    }
+
+    // function to print action of mark task as undone
+    public void printTaskUndone(int index) {
+        System.out.println("OK, I've marked this task as not done yet:");
+        taskList.markTaskAsUndone(index);
+    }
 }
