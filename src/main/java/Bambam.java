@@ -6,7 +6,7 @@ public class Bambam {
     }
 
     // function to facilitate communication between user and the chatbot
-    public void communication() {
+    public void communication() throws BambamException{
         messages.printGreetings();
         String input = messages.getInput(); // get input from user
 
@@ -29,20 +29,38 @@ public class Bambam {
                     messages.printTaskUndone(taskNumber - 1); // action is unmark
                     break;
                 case "todo":
+                    if (commands.length < 2) {
+                        throw new BambamException("Oopsies, description of todo can't be empty");
+                    }
                     String taskDescription = commands[1];
                     messages.printAddTask(new ToDos(taskDescription));
                     break;
                 case "deadline":
+                    if (commands.length < 2) {
+                        throw new BambamException("Oopsies, description of deadline can't be empty");
+                    }
                     String[] deadlineDetails = commands[1].split(" /by ", 2);
+                    if (deadlineDetails.length < 2) {
+                        throw new BambamException("Oopsies, time details of deadline can't be empty");
+                    }
                     messages.printAddTask(new Deadlines(deadlineDetails[0], deadlineDetails[1]));
                     break;
                 case "event":
+                    if (commands.length < 2) {
+                        throw new BambamException("Oopsies, description of event can't be empty");
+                    }
                     String[] eventDetails = commands[1].split(" /from ", 2);
+                    if (eventDetails.length < 2) {
+                        throw new BambamException("Oopsies, time details of event can't be empty");
+                    }
                     String[] eventTimeDetails = eventDetails[1].split(" /to ", 2);
+                    if (eventTimeDetails.length < 2) {
+                        throw new BambamException("Oopsies, please provide full details of time of event");
+                    }
                     messages.printAddTask(new Events(eventDetails[0], eventTimeDetails[0], eventTimeDetails[1]));
                     break;
                 default:
-                    messages.printInputs(input); // other input(task to be added)
+                    throw new BambamException("Sorry I don't get what you're saying, please provide me with relevant tasks");
             }
             input = messages.getInput(); // get next input if current input is not bye
         }
@@ -50,7 +68,7 @@ public class Bambam {
         messages.printExit(); // if input is bye, it prints the exit message
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BambamException {
         Bambam bambam = new Bambam();
         bambam.communication();
     }

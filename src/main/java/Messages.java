@@ -33,12 +33,6 @@ public class Messages {
         System.out.println("Now you have " + taskList.getTaskCounter() + " tasks in the list.\n");
     }
 
-    // function to print inputs from users
-    public void printInputs(String input) {
-        taskList.addTaskToList(new Task(input));
-        System.out.println("added: " + input + "\n");
-    }
-
     // function to print list of tasks
     public void printTaskList() {
         taskList.printList();
@@ -46,13 +40,13 @@ public class Messages {
     }
 
     // function to print action of mark task as done
-    public void printTaskDone(int index) {
+    public void printTaskDone(int index) throws BambamException {
         System.out.println("Nice! I've marked this task as done:");
         taskList.markTaskAsDone(index);
     }
 
     // function to print action of mark task as undone
-    public void printTaskUndone(int index) {
+    public void printTaskUndone(int index) throws BambamException{
         System.out.println("OK, I've marked this task as not done yet:");
         taskList.markTaskAsUndone(index);
     }

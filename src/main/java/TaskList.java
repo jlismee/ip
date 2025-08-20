@@ -19,9 +19,9 @@ public class TaskList {
     }
 
     // function mark task as done using index
-    public void markTaskAsDone(int index) {
+    public void markTaskAsDone(int index) throws BambamException {
         if (index > taskCounter) {
-            System.out.println("Invalid Task Number");
+            throw new BambamException("Oopsies, " + index + " is a invalid Task Number");
         } else {
             taskList[index].markAsDone();
             System.out.println("    " + taskList[index].printTaskString() + "\n");
@@ -29,9 +29,9 @@ public class TaskList {
     }
 
     // function mark task as undone using index
-    public void markTaskAsUndone(int index) {
+    public void markTaskAsUndone(int index) throws BambamException {
         if (index > taskCounter) {
-            System.out.println("Invalid Task Number");
+            throw new BambamException("Oopsies, " + index + " is a invalid Task Number");
         } else {
             taskList[index].markAsUndone();
             System.out.println("    " + taskList[index].printTaskString() + "\n");
