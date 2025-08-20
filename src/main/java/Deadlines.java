@@ -9,6 +9,6 @@ public class Deadlines extends Task{
     // function to get Deadlines Task String
     @Override
     public String printTaskString() {
-        return "[D] " + super.printTaskString() + " (by: " + deadline + ")";
+        return "[D]" + super.printTaskString() + " (by: " + deadline + ")";
     }
 }

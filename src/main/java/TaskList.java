@@ -24,7 +24,7 @@ public class TaskList {
             System.out.println("Invalid Task Number");
         } else {
             taskList[index].markAsDone();
-            System.out.println(" " + taskList[index].printTaskString() + "\n");
+            System.out.println("    " + taskList[index].printTaskString() + "\n");
         }
     }
 
@@ -34,7 +34,7 @@ public class TaskList {
             System.out.println("Invalid Task Number");
         } else {
             taskList[index].markAsUndone();
-            System.out.println(" " + taskList[index].printTaskString() + "\n");
+            System.out.println("    " + taskList[index].printTaskString() + "\n");
         }
     }
 
@@ -45,7 +45,7 @@ public class TaskList {
 
     // function to print list of tasks
     public void printList() {
-        System.out.println("Here are the tasks in your list: ");
+        System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < taskCounter; i++) {
             int count = i + 1;
             System.out.println(count + "." + taskList[i].printTaskString());

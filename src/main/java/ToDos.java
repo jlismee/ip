@@ -7,7 +7,7 @@ public class ToDos extends Task {
     // function to get ToDos Task String
     @Override
     public String printTaskString() {
-        return "[T] " + super.printTaskString();
+        return "[T]" + super.printTaskString();
     }
 }
 

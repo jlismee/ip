@@ -29,7 +29,7 @@ public class Messages {
     public void printAddTask(Task newTask) {
         taskList.addTaskToList(newTask);
         System.out.println("Got it. I've added this task:");
-        System.out.println(" " + newTask.printTaskString());
+        System.out.println("    " + newTask.printTaskString());
         System.out.println("Now you have " + taskList.getTaskCounter() + " tasks in the list.\n");
     }
 

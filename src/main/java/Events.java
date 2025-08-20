@@ -11,6 +11,6 @@ public class Events extends Task{
     // function to get Events Task String
     @Override
     public String printTaskString() {
-        return "[E] " + super.printTaskString() + " (from: " + from + " to: " + to + ")";
+        return "[E]" + super.printTaskString() + " (from: " + from + " to: " + to + ")";
     }
 }
