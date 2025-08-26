@@ -9,5 +9,11 @@ public class ToDos extends Task {
     public String printTaskString() {
         return "[T]" + super.printTaskString();
     }
+
+    // Return ToDos task string to be saved in the hard disk
+    @Override
+    public String taskStorageString() {
+        return "T | " + super.taskStorageString();
+    }
 }
 

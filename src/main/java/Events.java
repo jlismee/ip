@@ -13,4 +13,10 @@ public class Events extends Task{
     public String printTaskString() {
         return "[E]" + super.printTaskString() + " (from: " + from + " to: " + to + ")";
     }
+
+    // Return Events task string to be saved in the hard disk
+    @Override
+    public String taskStorageString() {
+        return "E | " + super.taskStorageString() + " | " + from + " to " + to;
+    }
 }
