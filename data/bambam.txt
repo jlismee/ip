@@ -1,4 +1,5 @@
-T | Done | hai
 T | Not Done | read book
-D | Not Done | return book | June 6th
-E | Done | project meeting | Aug 6th 2 to 4pm
+D | Not Done | return book | 2019-01-01 0000
+D | Not Done | buy bread | 2020-01-01 1800
+E | Not Done | project | 2025-01-01 0000 to 2025-01-02 0000
+E | Not Done | dance | 2025-01-01 1800 to 2025-01-01 2100
