@@ -1,12 +1,9 @@
-public class Bambam {
-    private Messages messages;
+import java.io.IOException;
 
-    public Bambam() {
-        this.messages = new Messages();
-    }
+public class Bambam {
 
     // function to facilitate communication between user and the chatbot
-    public void communication() throws BambamException{
+    public void communication(Messages messages, TaskStorage storage, TaskList taskList) throws BambamException, IOException {
         messages.printGreetings();
         String input = messages.getInput(); // get input from user
 
@@ -23,17 +20,21 @@ public class Bambam {
                 case "mark":
                     taskNumber = Integer.parseInt(commands[1]); // action is mark
                     messages.printTaskDone(taskNumber - 1);
+                    storage.saveTask(taskList);
                     break;
                 case "unmark":
                     taskNumber = Integer.parseInt(commands[1]);
                     messages.printTaskUndone(taskNumber - 1); // action is unmark
+                    storage.saveTask(taskList);
                     break;
                 case "todo":
                     if (commands.length < 2) {
                         throw new BambamException("Oopsies, description of todo can't be empty");
                     }
                     String taskDescription = commands[1];
-                    messages.printAddTask(new ToDos(taskDescription));
+                    Task todo = new ToDos(taskDescription);
+                    messages.printAddTask(todo);
+                    storage.saveTask(taskList);
                     break;
                 case "deadline":
                     if (commands.length < 2) {
@@ -43,7 +44,9 @@ public class Bambam {
                     if (deadlineDetails.length < 2) {
                         throw new BambamException("Oopsies, time details of deadline can't be empty");
                     }
-                    messages.printAddTask(new Deadlines(deadlineDetails[0], deadlineDetails[1]));
+                    Task deadline = new Deadlines(deadlineDetails[0], deadlineDetails[1]);
+                    messages.printAddTask(deadline);
+                    storage.saveTask(taskList);
                     break;
                 case "event":
                     if (commands.length < 2) {
@@ -57,11 +60,14 @@ public class Bambam {
                     if (eventTimeDetails.length < 2) {
                         throw new BambamException("Oopsies, please provide full details of time of event");
                     }
-                    messages.printAddTask(new Events(eventDetails[0], eventTimeDetails[0], eventTimeDetails[1]));
+                    Task event = new Events(eventDetails[0], eventTimeDetails[0], eventTimeDetails[1]);
+                    messages.printAddTask(event);
+                    storage.saveTask(taskList);
                     break;
                 case "delete":
                     taskNumber = Integer.parseInt(commands[1]);
                     messages.printDeleteTask(taskNumber - 1);
+                    storage.saveTask(taskList);
                     break;
                 default:
                     throw new BambamException("Sorry I don't get what you're saying, please provide me with relevant tasks");
@@ -72,8 +78,11 @@ public class Bambam {
         messages.printExit(); // if input is bye, it prints the exit message
     }
 
-    public static void main(String[] args) throws BambamException {
+    public static void main(String[] args) throws BambamException, IOException {
         Bambam bambam = new Bambam();
-        bambam.communication();
+        TaskStorage taskStorage = new TaskStorage();
+        TaskList taskList = taskStorage.loadTasks();
+        Messages messages = new Messages(taskList);
+        bambam.communication(messages, taskStorage, taskList);
     }
 }

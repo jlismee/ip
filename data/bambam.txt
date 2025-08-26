@@ -1,0 +1,4 @@
+T | Done | hai
+T | Not Done | read book
+D | Not Done | return book | June 6th
+E | Done | project meeting | Aug 6th 2 to 4pm
