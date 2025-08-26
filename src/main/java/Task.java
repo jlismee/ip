@@ -27,4 +27,9 @@ public class Task {
         isDone = false;
     }
 
+    // Return string of the task to be saved in the hard disk
+    public String taskStorageString() {
+        return (isDone ? "Done" : "Not Done") + " | " + taskDescription;
+    }
+
 }

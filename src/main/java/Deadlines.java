@@ -11,4 +11,10 @@ public class Deadlines extends Task{
     public String printTaskString() {
         return "[D]" + super.printTaskString() + " (by: " + deadline + ")";
     }
+
+    // Return Deadlines task string to be saved in the hard disk
+    @Override
+    public String taskStorageString() {
+        return "D | " + super.taskStorageString() + " | " + deadline;
+    }
 }
