@@ -1,3 +1,10 @@
+package bambam;
+
+import bambam.task.Deadlines;
+import bambam.task.Events;
+import bambam.task.Task;
+import bambam.task.ToDos;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

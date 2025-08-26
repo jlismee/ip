@@ -1,4 +1,4 @@
-# Bambam User Guide
+# bambam.Bambam User Guide
 
 // Update the title above to match the actual product name
 

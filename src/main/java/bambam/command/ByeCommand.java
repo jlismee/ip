@@ -1,6 +1,10 @@
+package bambam.command;
+
+import bambam.*;
+
 import java.io.IOException;
 
-public class ByeCommand extends Command{
+public class ByeCommand extends Command {
 
     public ByeCommand() {
         super(true);

@@ -1,3 +1,7 @@
+package bambam;
+
+import bambam.command.Command;
+
 import java.io.IOException;
 
 public class Bambam {

@@ -1,3 +1,7 @@
+package bambam;
+
+import bambam.task.Task;
+
 import java.util.ArrayList;
 
 public class TaskList {
@@ -15,7 +19,7 @@ public class TaskList {
     // function to get task of a specific index
     public Task getTask(int index) throws BambamException {
         if (index >= getTaskSize()) {
-            throw new BambamException("Oopsies, this is a invalid Task Number");
+            throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
             return taskList.get(index);
         }
@@ -29,7 +33,7 @@ public class TaskList {
     // function to delete task from task list
     public void deleteTaskFromList(int index) throws BambamException {
         if (index >= getTaskSize()) {
-            throw new BambamException("Oopsies, this is a invalid Task Number");
+            throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
             taskList.remove(index);
         }
@@ -38,7 +42,7 @@ public class TaskList {
     // function mark task as done using index
     public void markTaskAsDone(int index) throws BambamException {
         if (index >= getTaskSize()) {
-            throw new BambamException("Oopsies, this is a invalid Task Number");
+            throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
             Task task = getTask(index);
             task.markAsDone();
@@ -49,7 +53,7 @@ public class TaskList {
     // function mark task as undone using index
     public void markTaskAsUndone(int index) throws BambamException {
         if (index >= getTaskSize()) {
-            throw new BambamException("Oopsies, this is a invalid Task Number");
+            throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
             Task task = getTask(index);
             task.markAsUndone();
