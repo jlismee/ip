@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TaskStorage {
@@ -17,11 +16,11 @@ public class TaskStorage {
         File file = new File(FILE_PATH);
         File parentDirectory = file.getParentFile();
 
-        if (!parentDirectory.exists()) {
+        if (!parentDirectory.exists()) { // If parent directories does not exist, create a new one
             parentDirectory.mkdirs();
         }
 
-        if (!file.exists()) {
+        if (!file.exists()) { // If file does not exist, create a new file
             file.createNewFile();
         }
     }
