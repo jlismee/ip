@@ -59,4 +59,9 @@ public class Messages {
         System.out.println("OK, I've marked this task as not done yet:");
         taskList.markTaskAsUndone(index);
     }
+
+    // Prints error message
+    public void printErrorMessage(String error) {
+        System.out.println("BambamException: " + error);
+    }
 }

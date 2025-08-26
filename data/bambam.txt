@@ -1,4 +1,4 @@
-T | Not Done | read book
+T | Done | read book
 D | Not Done | return book | 2019-01-01 0000
 D | Not Done | buy bread | 2020-01-01 1800
 E | Not Done | project | 2025-01-01 0000 to 2025-01-02 0000
