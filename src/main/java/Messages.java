@@ -5,8 +5,8 @@ public class Messages {
     Scanner scanner = new Scanner(System.in); // Scanner for inputs from users
     private TaskList taskList;
 
-    public Messages() {
-        this.taskList = new TaskList();
+    public Messages(TaskList taskList) {
+        this.taskList = taskList;
     }
 
     // function to print greetings to users
