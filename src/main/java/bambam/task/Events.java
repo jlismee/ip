@@ -1,7 +1,9 @@
+package bambam.task;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Events extends Task{
+public class Events extends Task {
     private LocalDateTime from;
     private LocalDateTime to;
     private static final DateTimeFormatter DATE_TIME_FILE_FORMAT =
@@ -13,7 +15,7 @@ public class Events extends Task{
         this.to = getLocalDateTime(to);
     }
 
-    // function to get Events Task String
+    // function to get bambam.task.Events bambam.task.Task String
     @Override
     public String printTaskString() {
         String fromString = printLocalDateTime(from);
@@ -21,7 +23,7 @@ public class Events extends Task{
         return "[E]" + super.printTaskString() + " (from: " + fromString + " to: " + toString + ")";
     }
 
-    // Return Events task string to be saved in the hard disk
+    // Return bambam.task.Events task string to be saved in the hard disk
     @Override
     public String taskStorageString() {
         String fromString = from.format(DATE_TIME_FILE_FORMAT);

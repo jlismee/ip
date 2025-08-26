@@ -1,3 +1,10 @@
+package bambam.command;
+
+import bambam.BambamException;
+import bambam.Messages;
+import bambam.TaskList;
+import bambam.TaskStorage;
+
 import java.io.IOException;
 
 public class UnmarkCommand extends Command {

@@ -1,6 +1,15 @@
+package bambam.command;
+
+import bambam.BambamException;
+import bambam.Messages;
+import bambam.TaskList;
+import bambam.TaskStorage;
+import bambam.task.Events;
+import bambam.task.Task;
+
 import java.io.IOException;
 
-public class EventCommand extends Command{
+public class EventCommand extends Command {
     private final String taskDescription;
 
     public EventCommand(String taskDescription) {

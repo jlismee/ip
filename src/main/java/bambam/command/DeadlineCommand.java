@@ -1,3 +1,12 @@
+package bambam.command;
+
+import bambam.BambamException;
+import bambam.Messages;
+import bambam.TaskList;
+import bambam.TaskStorage;
+import bambam.task.Deadlines;
+import bambam.task.Task;
+
 import java.io.IOException;
 
 public class DeadlineCommand extends Command {

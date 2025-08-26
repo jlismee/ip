@@ -1,6 +1,13 @@
+package bambam.command;
+
+import bambam.BambamException;
+import bambam.Messages;
+import bambam.TaskList;
+import bambam.TaskStorage;
+
 import java.io.IOException;
 
-public class DeleteCommand extends Command{
+public class DeleteCommand extends Command {
     private final int  taskNumber;
 
     public DeleteCommand(int taskNumber) {

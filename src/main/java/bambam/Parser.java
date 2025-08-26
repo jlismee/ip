@@ -1,3 +1,7 @@
+package bambam;
+
+import bambam.command.*;
+
 public class Parser {
 
     public Command parse(String fullCommand) throws BambamException {

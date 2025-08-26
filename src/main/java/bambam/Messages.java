@@ -1,7 +1,11 @@
+package bambam;
+
+import bambam.task.Task;
+
 import java.util.Scanner;
 
 public class Messages {
-    public String CHATBOT_NAME = "Bambam"; // chatbot name is constant
+    public String CHATBOT_NAME = "bambam.Bambam"; // chatbot name is constant
     Scanner scanner = new Scanner(System.in); // Scanner for inputs from users
     private TaskList taskList;
 
@@ -62,6 +66,6 @@ public class Messages {
 
     // Prints error message
     public void printErrorMessage(String error) {
-        System.out.println("BambamException: " + error);
+        System.out.println("bambam.BambamException: " + error);
     }
 }
