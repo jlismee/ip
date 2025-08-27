@@ -4,6 +4,9 @@ import bambam.task.Task;
 
 import java.util.ArrayList;
 
+/**
+ * Handles the array list of Task objects.
+ */
 public class TaskList {
     private ArrayList<Task> taskList;
 
@@ -11,12 +14,20 @@ public class TaskList {
         taskList = new ArrayList<>();
     }
 
-    // function to get number of tasks
+    /**
+     * Gets number of tasks in the task list.
+     * @return
+     */
     public int getTaskSize() {
         return taskList.size();
     }
 
-    // function to get task of a specific index
+    /**
+     * Gets Task object of a specific index.
+     * @param index
+     * @return
+     * @throws BambamException
+     */
     public Task getTask(int index) throws BambamException {
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
@@ -25,12 +36,19 @@ public class TaskList {
         }
     }
 
-    // function to add task to the task list
+    /**
+     * Adds Task object to the task list.
+     * @param newTask
+     */
     public void addTaskToList(Task newTask) {
         taskList.add(newTask);
     }
 
-    // function to delete task from task list
+    /**
+     * Deletes Task object from the task list.
+     * @param index
+     * @throws BambamException
+     */
     public void deleteTaskFromList(int index) throws BambamException {
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
@@ -39,7 +57,11 @@ public class TaskList {
         }
     }
 
-    // function mark task as done using index
+    /**
+     * Marks Task object as done using index.
+     * @param index
+     * @throws BambamException
+     */
     public void markTaskAsDone(int index) throws BambamException {
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
@@ -50,7 +72,11 @@ public class TaskList {
         }
     }
 
-    // function mark task as undone using index
+    /**
+     * Marks Task objects as undone using index.
+     * @param index
+     * @throws BambamException
+     */
     public void markTaskAsUndone(int index) throws BambamException {
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
@@ -61,12 +87,10 @@ public class TaskList {
         }
     }
 
-    // function to print individual task status
-    public void printTaskStatus(int index) throws BambamException {
-        getTask(index).printTaskString();
-    }
-
-    // function to print list of tasks
+    /**
+     * Prints list of Task objects.
+     * @throws BambamException
+     */
     public void printList() throws BambamException {
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < getTaskSize(); i++) {

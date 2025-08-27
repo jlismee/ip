@@ -9,6 +9,9 @@ import bambam.task.ToDos;
 
 import java.io.IOException;
 
+/**
+ * Represents the todo command which is a type of Command.
+ */
 public class ToDoCommand extends Command {
     private final String taskDescription;
 

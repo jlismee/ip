@@ -7,6 +7,9 @@ import bambam.TaskStorage;
 
 import java.io.IOException;
 
+/**
+ * Represents the list command which is a type of Command.
+ */
 public class ListCommand extends Command {
 
     public ListCommand() {

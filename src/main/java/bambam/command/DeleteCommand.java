@@ -7,6 +7,9 @@ import bambam.TaskStorage;
 
 import java.io.IOException;
 
+/**
+ * Represents the delete command which is a type of Command.
+ */
 public class DeleteCommand extends Command {
     private final int  taskNumber;
 
