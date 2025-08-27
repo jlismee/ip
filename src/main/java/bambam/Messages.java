@@ -93,6 +93,17 @@ public class Messages {
     }
 
     /**
+     * Prints action of finding Task objects with a keyword.
+     * @param keyword
+     * @throws BambamException
+     */
+    public void printFindList(String keyword) throws BambamException {
+        System.out.println("Here are the matching tasks in your list:");
+        taskList.findTasks(keyword);
+        System.out.println();
+    }
+
+    /**
      * Prints error message.
      * @param error
      */

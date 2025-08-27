@@ -70,6 +70,14 @@ public class Task {
     }
 
     /**
+     * Returns taskDescription string.
+     * @return
+     */
+    public String getTaskDescription() {
+        return taskDescription;
+    }
+
+    /**
      * Returns the Task String to be printed.
      * @return
      */

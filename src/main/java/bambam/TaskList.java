@@ -88,6 +88,21 @@ public class TaskList {
     }
 
     /**
+     * Handles the finding of Task objects with a specific keyword.
+     * @param keyword
+     * @throws BambamException
+     */
+    public void findTasks(String keyword) throws BambamException {
+        for (int i = 0; i < getTaskSize(); i++) {
+            int count = i + 1;
+            String taskDescription = getTask(i).getTaskDescription();
+            if (taskDescription.contains(keyword)) {
+                System.out.println(count + "." + getTask(i).printTaskString());
+            }
+        }
+    }
+
+    /**
      * Prints list of Task objects.
      * @throws BambamException
      */
