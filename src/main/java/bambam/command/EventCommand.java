@@ -1,13 +1,13 @@
 package bambam.command;
 
+import java.io.IOException;
+
 import bambam.BambamException;
 import bambam.Messages;
 import bambam.TaskList;
 import bambam.TaskStorage;
 import bambam.task.Events;
 import bambam.task.Task;
-
-import java.io.IOException;
 
 /**
  * Represents the event command which is a type of Command.

@@ -1,8 +1,8 @@
 package bambam;
 
-import bambam.task.Task;
-
 import java.util.ArrayList;
+
+import bambam.task.Task;
 
 /**
  * Handles the array list of Task objects.

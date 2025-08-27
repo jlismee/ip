@@ -1,8 +1,8 @@
 package bambam;
 
-import bambam.command.Command;
-
 import java.io.IOException;
+
+import bambam.command.Command;
 
 /**
  * Handles the main entry point of Bambam chatbot.

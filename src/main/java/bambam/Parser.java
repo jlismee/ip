@@ -1,6 +1,14 @@
 package bambam;
 
-import bambam.command.*;
+import bambam.command.ByeCommand;
+import bambam.command.Command;
+import bambam.command.DeadlineCommand;
+import bambam.command.DeleteCommand;
+import bambam.command.EventCommand;
+import bambam.command.ListCommand;
+import bambam.command.MarkCommand;
+import bambam.command.ToDoCommand;
+import bambam.command.UnmarkCommand;
 
 /**
  * Parses user input into executable commands.

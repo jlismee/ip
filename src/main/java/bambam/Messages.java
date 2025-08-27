@@ -1,8 +1,8 @@
 package bambam;
 
-import bambam.task.Task;
-
 import java.util.Scanner;
+
+import bambam.task.Task;
 
 /**
  * Handles the printing of messages when interacting with users.

@@ -1,11 +1,11 @@
 package bambam.command;
 
+import java.io.IOException;
+
 import bambam.BambamException;
 import bambam.Messages;
 import bambam.TaskList;
 import bambam.TaskStorage;
-
-import java.io.IOException;
 
 /**
  * Represents the delete command which is a type of Command.
