@@ -33,6 +33,6 @@ public class EventCommand extends Command {
         }
         Task event = new Events(eventDetails[0], eventTimeDetails[0], eventTimeDetails[1]);
         messages.printAddTask(event);
-        storage.saveTask(taskList);
+        storage.saveTasks(taskList);
     }
 }

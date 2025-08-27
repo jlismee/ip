@@ -55,17 +55,17 @@ public class TaskStorage {
 
             Task task = null;
             switch (taskType) {
-                case "T":
-                    task = new ToDos(taskCommands[2]);
-                    break;
-                case "D":
-                    task = new Deadlines(taskCommands[2], taskCommands[3]);
-                    break;
-                case "E":
-                    String[] eventsTaskTimeDetails = taskCommands[3].split(" to ", 2);
-                    task = new Events(taskCommands[2], eventsTaskTimeDetails[0],
-                            eventsTaskTimeDetails[1]);
-                    break;
+            case "T":
+                task = new ToDos(taskCommands[2]);
+                break;
+            case "D":
+                task = new Deadlines(taskCommands[2], taskCommands[3]);
+                break;
+            case "E":
+                String[] eventsTaskTimeDetails = taskCommands[3].split(" to ", 2);
+                task = new Events(taskCommands[2], eventsTaskTimeDetails[0],
+                        eventsTaskTimeDetails[1]);
+                break;
             }
 
             if (task != null) {
@@ -86,7 +86,7 @@ public class TaskStorage {
      * @throws IOException
      * @throws BambamException
      */
-    public void saveTask(TaskList taskList) throws IOException, BambamException {
+    public void saveTasks(TaskList taskList) throws IOException, BambamException {
         FileWriter fw = new FileWriter(FILE_PATH);
         for (int i = 0; i < taskList.getTaskSize(); i++) {
             Task task = taskList.getTask(i);

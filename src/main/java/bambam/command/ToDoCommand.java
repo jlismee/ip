@@ -25,6 +25,6 @@ public class ToDoCommand extends Command {
             throws BambamException, IOException {
         Task todo = new ToDos(taskDescription);
         messages.printAddTask(todo);
-        storage.saveTask(taskList);
+        storage.saveTasks(taskList);
     }
 }

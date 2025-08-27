@@ -19,13 +19,13 @@ public class Bambam {
      */
     public void communication(Messages messages, TaskStorage storage, TaskList taskList) throws BambamException, IOException {
         messages.printGreetings();
-        Parser paser = new Parser();
+        Parser parser = new Parser();
         boolean isExit = false;
 
         while (!isExit) {
             String input = messages.getInput();
             try {
-                Command command = paser.parse(input);
+                Command command = parser.parse(input);
                 command.execute(storage,messages,taskList);
                 isExit = command.getIsExit();
             } catch (BambamException e) {

@@ -33,6 +33,6 @@ public abstract class Command {
      * @throws BambamException
      * @throws IOException
      */
-    public abstract void execute(TaskStorage storage, Messages messages, TaskList taskList)
-            throws BambamException, IOException;
+    public abstract void execute(TaskStorage storage, Messages messages,
+                                 TaskList taskList) throws BambamException, IOException;
 }

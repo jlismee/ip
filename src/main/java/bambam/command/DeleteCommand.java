@@ -22,6 +22,6 @@ public class DeleteCommand extends Command {
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
         messages.printDeleteTask(taskNumber - 1);
-        storage.saveTask(taskList);
+        storage.saveTasks(taskList);
     }
 }

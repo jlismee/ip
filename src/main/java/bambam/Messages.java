@@ -68,7 +68,7 @@ public class Messages {
      * @throws BambamException
      */
     public void printTaskList() throws BambamException {
-        taskList.printList();
+        taskList.printTaskList();
         System.out.println();
     }
 
