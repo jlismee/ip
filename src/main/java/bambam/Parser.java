@@ -5,6 +5,7 @@ import bambam.command.Command;
 import bambam.command.DeadlineCommand;
 import bambam.command.DeleteCommand;
 import bambam.command.EventCommand;
+import bambam.command.FindCommand;
 import bambam.command.ListCommand;
 import bambam.command.MarkCommand;
 import bambam.command.ToDoCommand;
@@ -61,6 +62,11 @@ public class Parser {
             }
             taskNumber = Integer.parseInt(commands[1]);
             return new DeleteCommand(taskNumber);
+        case "find":
+            if (commands.length < 2) {
+                throw new BambamException("Oopsies, please provide a valid keyword");
+            }
+            return new FindCommand(commands[1]);
         case "bye":
             return new ByeCommand();
         default:
