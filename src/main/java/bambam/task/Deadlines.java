@@ -3,6 +3,9 @@ package bambam.task;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents deadlines which is a type of Task.
+ */
 public class Deadlines extends Task {
     private LocalDateTime deadline;
     private static final DateTimeFormatter DATE_TIME_FILE_FORMAT =

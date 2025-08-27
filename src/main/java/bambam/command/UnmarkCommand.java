@@ -7,6 +7,9 @@ import bambam.TaskStorage;
 
 import java.io.IOException;
 
+/**
+ * Represents the unmark command which is a type of Command.
+ */
 public class UnmarkCommand extends Command {
     private final int taskNumber;
 

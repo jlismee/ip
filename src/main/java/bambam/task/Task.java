@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a Task object with its description and isDone status.
+ */
 public class Task {
     private String taskDescription;
     private boolean isDone;
@@ -22,7 +25,11 @@ public class Task {
         this.isDone = false;
     }
 
-    // Returns dates and times in LocalDateTime
+    /**
+     * Returns dates and times of Task objects in LocalDateTime.
+     * @param dateTime
+     * @return
+     */
     public LocalDateTime getLocalDateTime(String dateTime) {
         String[] dateTimeDetails = dateTime.split(" ", 2);
         if (dateTimeDetails.length == 2) {
@@ -33,7 +40,11 @@ public class Task {
         }
     }
 
-    // Returns LocalDateTime as Strings
+    /**
+     * Returns dates and times of Task objects in LocalDateTime as Strings.
+     * @param dateTime
+     * @return
+     */
     public String printLocalDateTime(LocalDateTime dateTime) {
         if (dateTime.toLocalTime().equals(LocalTime.MIDNIGHT)) {
             return dateTime.format(DATE_OUTPUT_FORMAT);
@@ -42,31 +53,48 @@ public class Task {
         }
     }
 
-    // function to obtain the string to print depending on whether the task is completed
+    /**
+     * Returns String to print depending on whether the Task object is done.
+     * @return
+     */
     public String getStatusIcon() {
         return (isDone ? "X" : " ");
     }
 
+    /**
+     * Returns isDone boolean.
+     * @return
+     */
     public boolean getIsDone() {
         return isDone;
     }
 
-    // function to print task
+    /**
+     * Returns the Task String to be printed.
+     * @return
+     */
     public String printTaskString() {
         return "[" + getStatusIcon() + "] " + taskDescription;
     }
 
-    // function to mark task as done
+    /**
+     * Handles the marking of Task object as done.
+     */
     public void markAsDone() {
         isDone = true;
     }
 
-    // function to mark task as undone
+    /**
+     * Handles the marking of Task object as undone.
+     */
     public void markAsUndone() {
         isDone = false;
     }
 
-    // Return string of the task to be saved in the hard disk
+    /**
+     * Returns the string of the Task object ot be saved in the hard disk.
+     * @return
+     */
     public String taskStorageString() {
         return (isDone ? "Done" : "Not Done") + " | " + taskDescription;
     }

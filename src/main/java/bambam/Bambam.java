@@ -4,9 +4,19 @@ import bambam.command.Command;
 
 import java.io.IOException;
 
+/**
+ * Handles the main entry point of Bambam chatbot.
+ */
 public class Bambam {
 
-    // function to facilitate communication between user and the chatbot
+    /**
+     * Facilitates communication between user and the chatbot.
+     * @param messages
+     * @param storage
+     * @param taskList
+     * @throws BambamException
+     * @throws IOException
+     */
     public void communication(Messages messages, TaskStorage storage, TaskList taskList) throws BambamException, IOException {
         messages.printGreetings();
         Parser paser = new Parser();
@@ -24,6 +34,12 @@ public class Bambam {
         }
     }
 
+    /**
+     * Handles the main method of the Bambam chatbot.
+     * @param args
+     * @throws BambamException
+     * @throws IOException
+     */
     public static void main(String[] args) throws BambamException, IOException {
         Bambam bambam = new Bambam();
         TaskStorage taskStorage = new TaskStorage();

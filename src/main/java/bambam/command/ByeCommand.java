@@ -4,6 +4,9 @@ import bambam.*;
 
 import java.io.IOException;
 
+/**
+ * Represents the bye command which is a type of Command.
+ */
 public class ByeCommand extends Command {
 
     public ByeCommand() {

@@ -2,8 +2,17 @@ package bambam;
 
 import bambam.command.*;
 
+/**
+ * Parses user input into executable commands.
+ */
 public class Parser {
 
+    /**
+     * Converts a fullCommand string into a Command object.
+     * @param fullCommand
+     * @return
+     * @throws BambamException
+     */
     public Command parse(String fullCommand) throws BambamException {
         String[] commands = fullCommand.split(" ", 2);
         String action = commands[0];

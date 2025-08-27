@@ -11,6 +11,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Handles the loading and saving of tasks in the hard disk.
+ */
 public class TaskStorage {
     private static final String FILE_PATH = "./data/bambam.txt";
 
@@ -18,7 +21,10 @@ public class TaskStorage {
         handleFileExistence();
     }
 
-    // Handles case where file does not exist
+    /**
+     * Handles the case where the file does not exist.
+     * @throws IOException
+     */
     private void handleFileExistence() throws IOException {
         File file = new File(FILE_PATH);
         File parentDirectory = file.getParentFile();
@@ -32,7 +38,11 @@ public class TaskStorage {
         }
     }
 
-    // Loads data in the file as task list
+    /**
+     * Loads data in the file as the task list.
+     * @return
+     * @throws FileNotFoundException
+     */
     public TaskList loadTasks() throws FileNotFoundException {
         TaskList taskList = new TaskList();
         File taskFile = new File(FILE_PATH);
@@ -70,7 +80,12 @@ public class TaskStorage {
         return taskList;
     }
 
-    // Writes new task to hard disk file
+    /**
+     * Saves and writes new task to hard disk file.
+     * @param taskList
+     * @throws IOException
+     * @throws BambamException
+     */
     public void saveTask(TaskList taskList) throws IOException, BambamException {
         FileWriter fw = new FileWriter(FILE_PATH);
         for (int i = 0; i < taskList.getTaskSize(); i++) {

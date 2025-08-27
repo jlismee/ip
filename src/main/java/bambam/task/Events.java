@@ -3,6 +3,9 @@ package bambam.task;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents events which is a type of Task.
+ */
 public class Events extends Task {
     private LocalDateTime from;
     private LocalDateTime to;

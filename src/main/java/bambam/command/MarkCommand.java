@@ -7,6 +7,9 @@ import bambam.TaskStorage;
 
 import java.io.IOException;
 
+/**
+ * Represents the mark command which is a type of Command.
+ */
 public class MarkCommand extends Command {
     private final int taskNumber;
 

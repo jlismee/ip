@@ -9,6 +9,9 @@ import bambam.task.Task;
 
 import java.io.IOException;
 
+/**
+ * Represents the deadline command which is a type of Command.
+ */
 public class DeadlineCommand extends Command {
     private final String taskDescription;
 

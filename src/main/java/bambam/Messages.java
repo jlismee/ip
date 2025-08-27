@@ -4,6 +4,9 @@ import bambam.task.Task;
 
 import java.util.Scanner;
 
+/**
+ * Handles the printing of messages when interacting with users.
+ */
 public class Messages {
     public String CHATBOT_NAME = "bambam.Bambam"; // chatbot name is constant
     Scanner scanner = new Scanner(System.in); // Scanner for inputs from users
@@ -13,23 +16,33 @@ public class Messages {
         this.taskList = taskList;
     }
 
-    // function to print greetings to users
+    /**
+     * Prints greetings to users.
+     */
     public void printGreetings() {
         System.out.println("Hello! I'm " + CHATBOT_NAME + "\n" +
                 "What can I do for you?\n");
     }
 
-    // function to print exit message
+    /**
+     * Prints exit message to users.
+     */
     public void printExit() {
         System.out.println("Bye. Hope to see you again soon!");
     }
 
-    // function to get input from users
+    /**
+     * Gets input from users.
+     * @return
+     */
     public String getInput() {
         return scanner.nextLine();
     }
 
-    // function to print details when adding task
+    /**
+     * Prints details when adding Task object.
+     * @param newTask
+     */
     public void printAddTask(Task newTask) {
         taskList.addTaskToList(newTask);
         System.out.println("Got it. I've added this task:");
@@ -37,7 +50,11 @@ public class Messages {
         System.out.println("Now you have " + taskList.getTaskSize() + " tasks in the list.\n");
     }
 
-    // function to print details when deleting task
+    /**
+     * Prints details when deleting Task object.
+     * @param index
+     * @throws BambamException
+     */
     public void printDeleteTask(int index) throws BambamException {
         Task task = taskList.getTask(index);
         taskList.deleteTaskFromList(index);
@@ -46,25 +63,39 @@ public class Messages {
         System.out.println("Now you have " + taskList.getTaskSize() + " tasks in the list.\n");
     }
 
-    // function to print list of tasks
+    /**
+     * Prints list of Task objects.
+     * @throws BambamException
+     */
     public void printTaskList() throws BambamException {
         taskList.printList();
         System.out.println();
     }
 
-    // function to print action of mark task as done
+    /**
+     * Prints action of marking Task object as done.
+     * @param index
+     * @throws BambamException
+     */
     public void printTaskDone(int index) throws BambamException {
         System.out.println("Nice! I've marked this task as done:");
         taskList.markTaskAsDone(index);
     }
 
-    // function to print action of mark task as undone
+    /**
+     * Prints action of marking Task object as undone.
+     * @param index
+     * @throws BambamException
+     */
     public void printTaskUndone(int index) throws BambamException{
         System.out.println("OK, I've marked this task as not done yet:");
         taskList.markTaskAsUndone(index);
     }
 
-    // Prints error message
+    /**
+     * Prints error message.
+     * @param error
+     */
     public void printErrorMessage(String error) {
         System.out.println("bambam.BambamException: " + error);
     }
