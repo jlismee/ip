@@ -47,6 +47,10 @@ public class Task {
         return (isDone ? "X" : " ");
     }
 
+    public boolean getIsDone() {
+        return isDone;
+    }
+
     // function to print task
     public String printTaskString() {
         return "[" + getStatusIcon() + "] " + taskDescription;
