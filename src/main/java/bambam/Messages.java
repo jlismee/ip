@@ -48,7 +48,7 @@ public class Messages {
 
     // function to print list of tasks
     public void printTaskList() throws BambamException {
-        taskList.printList();
+        taskList.printTaskList();
         System.out.println();
     }
 

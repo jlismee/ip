@@ -71,7 +71,7 @@ public class TaskStorage {
     }
 
     // Writes new task to hard disk file
-    public void saveTask(TaskList taskList) throws IOException, BambamException {
+    public void saveTasks(TaskList taskList) throws IOException, BambamException {
         FileWriter fw = new FileWriter(FILE_PATH);
         for (int i = 0; i < taskList.getTaskSize(); i++) {
             Task task = taskList.getTask(i);

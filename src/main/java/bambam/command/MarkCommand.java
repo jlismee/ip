@@ -19,6 +19,6 @@ public class MarkCommand extends Command {
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
         messages.printTaskDone(taskNumber - 1);
-        storage.saveTask(taskList);
+        storage.saveTasks(taskList);
     }
 }

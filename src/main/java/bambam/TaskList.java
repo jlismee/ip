@@ -67,7 +67,7 @@ public class TaskList {
     }
 
     // function to print list of tasks
-    public void printList() throws BambamException {
+    public void printTaskList() throws BambamException {
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < getTaskSize(); i++) {
             int count = i + 1;

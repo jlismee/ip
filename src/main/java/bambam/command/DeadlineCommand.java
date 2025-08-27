@@ -26,6 +26,6 @@ public class DeadlineCommand extends Command {
         }
         Task deadline = new Deadlines(deadlineDetails[0], deadlineDetails[1]);
         messages.printAddTask(deadline);
-        storage.saveTask(taskList);
+        storage.saveTasks(taskList);
     }
 }
