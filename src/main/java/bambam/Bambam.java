@@ -11,11 +11,11 @@ public class Bambam {
 
     /**
      * Facilitates communication between user and the chatbot.
-     * @param messages
-     * @param storage
-     * @param taskList
-     * @throws BambamException
-     * @throws IOException
+     * @param messages The UI interaction between the user and the chatbot.
+     * @param storage The Storage that saves and loads Task objects.
+     * @param taskList The current list of Task objects.
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
+     * @throws IOException If an input or output operation fails.
      */
     public void communication(Messages messages, TaskStorage storage, TaskList taskList) throws BambamException, IOException {
         messages.printGreetings();

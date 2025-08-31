@@ -33,7 +33,7 @@ public class Messages {
 
     /**
      * Gets input from users.
-     * @return
+     * @return The input of the user.
      */
     public String getInput() {
         return scanner.nextLine();
@@ -41,7 +41,7 @@ public class Messages {
 
     /**
      * Prints details when adding Task object.
-     * @param newTask
+     * @param newTask The new Task object added to the list of current Task objects.
      */
     public void printAddTask(Task newTask) {
         taskList.addTaskToList(newTask);
@@ -52,7 +52,7 @@ public class Messages {
 
     /**
      * Prints details when deleting Task object.
-     * @param index
+     * @param index The task number.
      * @throws BambamException
      */
     public void printDeleteTask(int index) throws BambamException {
@@ -65,7 +65,7 @@ public class Messages {
 
     /**
      * Prints list of Task objects.
-     * @throws BambamException
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public void printTaskList() throws BambamException {
         taskList.printTaskList();
@@ -74,8 +74,8 @@ public class Messages {
 
     /**
      * Prints action of marking Task object as done.
-     * @param index
-     * @throws BambamException
+     * @param index The task number.
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public void printTaskDone(int index) throws BambamException {
         System.out.println("Nice! I've marked this task as done:");
@@ -84,8 +84,8 @@ public class Messages {
 
     /**
      * Prints action of marking Task object as undone.
-     * @param index
-     * @throws BambamException
+     * @param index The task number.
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public void printTaskUndone(int index) throws BambamException{
         System.out.println("OK, I've marked this task as not done yet:");
@@ -94,8 +94,8 @@ public class Messages {
 
     /**
      * Prints action of finding Task objects with a keyword.
-     * @param keyword
-     * @throws BambamException
+     * @param keyword The input word from users when finding specific task.
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public void printFindList(String keyword) throws BambamException {
         System.out.println("Here are the matching tasks in your list:");
@@ -105,7 +105,7 @@ public class Messages {
 
     /**
      * Prints error message.
-     * @param error
+     * @param error The error message.
      */
     public void printErrorMessage(String error) {
         System.out.println("bambam.BambamException: " + error);

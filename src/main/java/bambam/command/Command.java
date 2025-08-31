@@ -19,7 +19,7 @@ public abstract class Command {
 
     /**
      * Returns the current status of isExit.
-     * @return
+     * @return The boolean on whether the command is an exit command.
      */
     public boolean getIsExit() {
         return isExit;
@@ -27,11 +27,11 @@ public abstract class Command {
 
     /**
      * Handles the execution of commands.
-     * @param storage
-     * @param messages
-     * @param taskList
-     * @throws BambamException
-     * @throws IOException
+     * @param storage The Storage that saves and loads Task objects.
+     * @param messages The UI interaction between the user and the chatbot.
+     * @param taskList The current list of Task objects.
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
+     * @throws IOException If an input or output operation fails.
      */
     public abstract void execute(TaskStorage storage, Messages messages,
                                  TaskList taskList) throws BambamException, IOException;

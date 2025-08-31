@@ -27,8 +27,8 @@ public class Task {
 
     /**
      * Returns dates and times of Task objects in LocalDateTime.
-     * @param dateTime
-     * @return
+     * @param dateTime The string of date and time provided by users.
+     * @return The date and time provided by users in string in LocalDateTime.
      */
     public LocalDateTime getLocalDateTime(String dateTime) {
         String[] dateTimeDetails = dateTime.split(" ", 2);
@@ -43,7 +43,7 @@ public class Task {
     /**
      * Returns dates and times of Task objects in LocalDateTime as Strings.
      * @param dateTime
-     * @return
+     * @return The string of date and time in LocalDateTime.
      */
     public String printLocalDateTime(LocalDateTime dateTime) {
         if (dateTime.toLocalTime().equals(LocalTime.MIDNIGHT)) {
@@ -55,7 +55,7 @@ public class Task {
 
     /**
      * Returns String to print depending on whether the Task object is done.
-     * @return
+     * @return The string of done or undone.
      */
     public String getStatusIcon() {
         return (isDone ? "X" : " ");
@@ -63,7 +63,7 @@ public class Task {
 
     /**
      * Returns isDone boolean.
-     * @return
+     * @return The isDone boolean.
      */
     public boolean getIsDone() {
         return isDone;
@@ -71,7 +71,7 @@ public class Task {
 
     /**
      * Returns taskDescription string.
-     * @return
+     * @return The string of the task description.
      */
     public String getTaskDescription() {
         return taskDescription;
@@ -79,7 +79,7 @@ public class Task {
 
     /**
      * Returns the Task String to be printed.
-     * @return
+     * @return The string of a task to be printed in the list.
      */
     public String printTaskString() {
         return "[" + getStatusIcon() + "] " + taskDescription;
@@ -101,7 +101,7 @@ public class Task {
 
     /**
      * Returns the string of the Task object ot be saved in the hard disk.
-     * @return
+     * @return The string of a task to be stored in the task storage.
      */
     public String taskStorageString() {
         return (isDone ? "Done" : "Not Done") + " | " + taskDescription;

@@ -23,7 +23,7 @@ public class TaskStorage {
 
     /**
      * Handles the case where the file does not exist.
-     * @throws IOException
+     * @throws IOException If an input or output operation fails.
      */
     private void handleFileExistence() throws IOException {
         File file = new File(FILE_PATH);
@@ -40,8 +40,8 @@ public class TaskStorage {
 
     /**
      * Loads data in the file as the task list.
-     * @return
-     * @throws FileNotFoundException
+     * @return The task list previously saved.
+     * @throws FileNotFoundException If a file is not found.
      */
     public TaskList loadTasks() throws FileNotFoundException {
         TaskList taskList = new TaskList();
@@ -82,9 +82,9 @@ public class TaskStorage {
 
     /**
      * Saves and writes new task to hard disk file.
-     * @param taskList
-     * @throws IOException
-     * @throws BambamException
+     * @param taskList The current task list.
+     * @throws IOException If an input or output operation fails.
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public void saveTasks(TaskList taskList) throws IOException, BambamException {
         FileWriter fw = new FileWriter(FILE_PATH);

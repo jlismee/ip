@@ -18,9 +18,9 @@ public class Parser {
 
     /**
      * Converts a fullCommand string into a Command object.
-     * @param fullCommand
-     * @return
-     * @throws BambamException
+     * @param fullCommand The input string from users.
+     * @return The Command object to execute.
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public Command parse(String fullCommand) throws BambamException {
         String[] commands = fullCommand.split(" ", 2);

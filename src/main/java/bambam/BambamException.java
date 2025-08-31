@@ -8,7 +8,7 @@ public class BambamException extends Exception {
 
     /**
      * Creates an error with a specific message.
-     * @param message
+     * @param message The error message to be printed.
      */
     public BambamException(String message) {
         super(message);

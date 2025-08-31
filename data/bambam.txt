@@ -5,3 +5,5 @@ E | Not Done | project | 2025-01-01 0000 to 2025-01-02 0000
 E | Not Done | dance | 2025-01-01 1800 to 2025-01-01 2100
 T | Not Done | buy bread
 T | Not Done | homework
+D | Not Done | haha | 2019-01-01 1800
+D | Not Done | hehe | 2025-01-01 0000
