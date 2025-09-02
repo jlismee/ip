@@ -36,9 +36,9 @@ public class Bambam {
 
     /**
      * Handles the main method of the Bambam chatbot.
-     * @param args
-     * @throws BambamException
-     * @throws IOException
+     * @param args The argument of Command-line
+     * @throws BambamException If there is an error related to the passing of input or the chatbot.
+     * @throws IOException If an input or output operation fails.
      */
     public static void main(String[] args) throws BambamException, IOException {
         Bambam bambam = new Bambam();
