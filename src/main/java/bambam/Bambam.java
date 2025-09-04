@@ -9,15 +9,23 @@ import bambam.command.Command;
  */
 public class Bambam {
 
+    private String commandType;
+    private TaskStorage storage;
+    private TaskList taskList;
+    private Messages messages;
+
+    public Bambam() throws IOException, BambamException {
+        storage = new TaskStorage();
+        taskList = storage.loadTasks();
+        messages = new Messages(taskList);
+    }
+
     /**
      * Facilitates communication between user and the chatbot.
-     * @param messages The UI interaction between the user and the chatbot.
-     * @param storage The Storage that saves and loads Task objects.
-     * @param taskList The current list of Task objects.
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      * @throws IOException If an input or output operation fails.
      */
-    public void communication(Messages messages, TaskStorage storage, TaskList taskList) throws BambamException, IOException {
+    public void communication() throws BambamException, IOException {
         messages.printGreetings();
         Parser parser = new Parser();
         boolean isExit = false;
@@ -42,9 +50,13 @@ public class Bambam {
      */
     public static void main(String[] args) throws BambamException, IOException {
         Bambam bambam = new Bambam();
-        TaskStorage taskStorage = new TaskStorage();
-        TaskList taskList = taskStorage.loadTasks();
-        Messages messages = new Messages(taskList);
-        bambam.communication(messages, taskStorage, taskList);
+        bambam.communication();
+    }
+
+    /**
+     * Generates a response for the user's chat message.
+     */
+    public String getResponse(String input) {
+        return "Duke heard: " + input;
     }
 }
