@@ -21,4 +21,9 @@ public class ByeCommand extends Command {
             throws BambamException, IOException {
         messages.printExit();
     }
+
+    @Override
+    public String getString() {
+        return ".";
+    }
 }

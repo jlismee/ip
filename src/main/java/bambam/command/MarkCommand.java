@@ -6,11 +6,13 @@ import bambam.BambamException;
 import bambam.Messages;
 import bambam.TaskList;
 import bambam.TaskStorage;
+import bambam.task.Task;
 
 /**
  * Represents the mark command which is a type of Command.
  */
 public class MarkCommand extends Command {
+    private Task task;
     private final int taskNumber;
 
     public MarkCommand(int taskNumber) {
@@ -21,7 +23,14 @@ public class MarkCommand extends Command {
     @Override
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
-        messages.printTaskDone(taskNumber - 1);
+        int index = taskNumber - 1;
+        task = taskList.markTaskAsDone(index);
         storage.saveTasks(taskList);
+    }
+
+    @Override
+    public String getString() {
+        return "Nice! I've marked this task as done:\n" +
+                "    " + task.printTaskString() + "\n";
     }
 }

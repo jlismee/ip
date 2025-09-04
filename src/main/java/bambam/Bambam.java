@@ -9,15 +9,23 @@ import bambam.command.Command;
  */
 public class Bambam {
 
+    private String commandType;
+    private TaskStorage storage;
+    private TaskList taskList;
+    private Messages messages;
+
+    public Bambam() throws IOException, BambamException {
+        storage = new TaskStorage();
+        taskList = storage.loadTasks();
+        messages = new Messages(taskList);
+    }
+
     /**
      * Facilitates communication between user and the chatbot.
-     * @param messages The UI interaction between the user and the chatbot.
-     * @param storage The Storage that saves and loads Task objects.
-     * @param taskList The current list of Task objects.
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      * @throws IOException If an input or output operation fails.
      */
-    public void communication(Messages messages, TaskStorage storage, TaskList taskList) throws BambamException, IOException {
+    public void communication() throws BambamException, IOException {
         messages.printGreetings();
         Parser parser = new Parser();
         boolean isExit = false;
@@ -26,7 +34,7 @@ public class Bambam {
             String input = messages.getInput();
             try {
                 Command command = parser.parse(input);
-                command.execute(storage,messages,taskList);
+                command.execute(storage, messages, taskList);
                 isExit = command.getIsExit();
             } catch (BambamException e) {
                 messages.printErrorMessage(e.getMessage());
@@ -42,9 +50,26 @@ public class Bambam {
      */
     public static void main(String[] args) throws BambamException, IOException {
         Bambam bambam = new Bambam();
-        TaskStorage taskStorage = new TaskStorage();
-        TaskList taskList = taskStorage.loadTasks();
-        Messages messages = new Messages(taskList);
-        bambam.communication(messages, taskStorage, taskList);
+        bambam.communication();
+    }
+
+    /**
+     * Generates a response for the user's chat message.
+     */
+    public String getResponse(String input) {
+        Parser p = new Parser();
+        try {
+            Command c = p.parse(input);
+            c.execute(storage, messages, taskList);
+            commandType = c.getClass().getSimpleName();
+            return c.getString();
+        } catch (BambamException e) {
+            return "Error: " + e.getMessage();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public String getCommandType() {
+        return commandType;
     }
 }

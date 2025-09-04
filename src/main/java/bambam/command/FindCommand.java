@@ -11,6 +11,7 @@ import bambam.TaskStorage;
  * Represents the find command which is a type of Command.
  */
 public class FindCommand extends Command {
+    private String taskListString;
     private String keyword;
 
     public FindCommand(String keyword) {
@@ -21,6 +22,13 @@ public class FindCommand extends Command {
     @Override
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
-        messages.printFindList(keyword);
+        taskListString = taskList.findTasks(keyword);
+    }
+
+    @Override
+    public String getString() {
+        return "Here are the matching tasks in your list:\n" +
+                taskListString;
+
     }
 }

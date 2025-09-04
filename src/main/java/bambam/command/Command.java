@@ -35,4 +35,11 @@ public abstract class Command {
      */
     public abstract void execute(TaskStorage storage, Messages messages,
                                  TaskList taskList) throws BambamException, IOException;
+
+    /**
+     * Handles the string for the output of Bambam chatbot.
+     * @return The string to be displayed to the user.
+     */
+    public abstract String getString();
 }
+
