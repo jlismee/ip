@@ -6,13 +6,17 @@ import bambam.BambamException;
 import bambam.Messages;
 import bambam.TaskList;
 import bambam.TaskStorage;
+import bambam.task.Deadlines;
 import bambam.task.Events;
 import bambam.task.Task;
+import bambam.task.ToDos;
 
 /**
  * Represents the event command which is a type of Command.
  */
 public class EventCommand extends Command {
+    private Task newEvent;
+    private int taskListSize;
     private final String taskDescription;
 
     public EventCommand(String taskDescription) {
@@ -31,8 +35,16 @@ public class EventCommand extends Command {
         if (eventTimeDetails.length < 2) {
             throw new BambamException("Oopsies, please provide full details of time of event");
         }
-        Task event = new Events(eventDetails[0], eventTimeDetails[0], eventTimeDetails[1]);
-        messages.printAddTask(event);
+        newEvent = new Events(eventDetails[0], eventTimeDetails[0], eventTimeDetails[1]);
+        taskList.addTaskToList( newEvent);
+        taskListSize = taskList.getTaskSize();
         storage.saveTasks(taskList);
+    }
+
+    @Override
+    public String getString() {
+        return "Got it. I've added this task:\n" +
+                "    " + newEvent.printTaskString() + "\n" +
+                "Now you have " + taskListSize+ " tasks in the list.\n";
     }
 }

@@ -60,57 +60,62 @@ public class TaskList {
     /**
      * Marks Task object as done using index.
      * @param index The task index in the task list.
+     * @return The task being mark as done.
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
-    public void markTaskAsDone(int index) throws BambamException {
+    public Task markTaskAsDone(int index) throws BambamException {
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
             Task task = getTask(index);
             task.markAsDone();
-            System.out.println("    " + task.printTaskString() + "\n");
+           return task;
         }
     }
 
     /**
      * Marks Task objects as undone using index.
      * @param index The task index in the task list.
+     * @return The task being mark as undone.
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
-    public void markTaskAsUndone(int index) throws BambamException {
+    public Task markTaskAsUndone(int index) throws BambamException {
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
             Task task = getTask(index);
             task.markAsUndone();
-            System.out.println("    " + task.printTaskString() + "\n");
+            return task;
         }
     }
 
     /**
      * Handles the finding of Task objects with a specific keyword.
      * @param keyword The input word from users when finding specific task.
+     * @return The task list with tasks of the specific keyword.
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
-    public void findTasks(String keyword) throws BambamException {
+    public String findTasks(String keyword) throws BambamException {
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < getTaskSize(); i++) {
-            int count = i + 1;
             String taskDescription = getTask(i).getTaskDescription();
             if (taskDescription.contains(keyword)) {
-                System.out.println(count + "." + getTask(i).printTaskString());
+                sb.append(i + 1).append(". ").append(getTask(i).printTaskString()).append("\n");
             }
         }
+        return sb.toString();
     }
 
     /**
-     * Prints list of Task objects.
+     * Handles the getting of task strings and putting them in a list.
+     * @return The String of task list.
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
-    public void printTaskList() throws BambamException {
-        System.out.println("Here are the tasks in your list:");
+    public String getTaskListString() throws BambamException {
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < getTaskSize(); i++) {
-            int count = i + 1;
-            System.out.println(count + "." + getTask(i).printTaskString());
+            sb.append(i + 1).append(". ").append(getTask(i).printTaskString()).append("\n");
         }
+        return sb.toString();
     }
 }

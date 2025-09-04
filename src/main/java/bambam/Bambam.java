@@ -34,7 +34,7 @@ public class Bambam {
             String input = messages.getInput();
             try {
                 Command command = parser.parse(input);
-                command.execute(storage,messages,taskList);
+                command.execute(storage, messages, taskList);
                 isExit = command.getIsExit();
             } catch (BambamException e) {
                 messages.printErrorMessage(e.getMessage());
@@ -57,6 +57,19 @@ public class Bambam {
      * Generates a response for the user's chat message.
      */
     public String getResponse(String input) {
-        return "Duke heard: " + input;
+        Parser p = new Parser();
+        try {
+            Command c = p.parse(input);
+            c.execute(storage, messages, taskList);
+            commandType = c.getClass().getSimpleName();
+            return c.getString();
+        } catch (BambamException e) {
+            return "Error: " + e.getMessage();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public String getCommandType() {
+        return commandType;
     }
 }

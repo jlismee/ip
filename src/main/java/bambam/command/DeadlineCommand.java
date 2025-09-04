@@ -8,11 +8,14 @@ import bambam.TaskList;
 import bambam.TaskStorage;
 import bambam.task.Deadlines;
 import bambam.task.Task;
+import bambam.task.ToDos;
 
 /**
  * Represents the deadline command which is a type of Command.
  */
 public class DeadlineCommand extends Command {
+    private Task newDeadline;
+    private int taskListSize;
     private final String taskDescription;
 
     public DeadlineCommand(String taskDescription) {
@@ -27,8 +30,16 @@ public class DeadlineCommand extends Command {
         if (deadlineDetails.length < 2) {
             throw new BambamException("Oopsies, time details of deadline can't be empty");
         }
-        Task deadline = new Deadlines(deadlineDetails[0], deadlineDetails[1]);
-        messages.printAddTask(deadline);
+        newDeadline = new Deadlines(deadlineDetails[0], deadlineDetails[1]);
+        taskList.addTaskToList(newDeadline);
+        taskListSize = taskList.getTaskSize();
         storage.saveTasks(taskList);
+    }
+
+    @Override
+    public String getString() {
+        return "Got it. I've added this task:\n" +
+                "    " + newDeadline.printTaskString() + "\n" +
+                "Now you have " + taskListSize+ " tasks in the list.\n";
     }
 }

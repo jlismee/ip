@@ -46,9 +46,10 @@ public class MainWindow extends AnchorPane {
     private void handleUserInput() {
         String input = userInput.getText();
         String response = bambam.getResponse(input);
+        String commandType = bambam.getCommandType();
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getBambamDialog(response, bambamImage)
+                DialogBox.getBambamDialog(response, bambamImage, commandType)
         );
         userInput.clear();
     }

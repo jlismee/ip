@@ -17,16 +17,15 @@ public class Main extends Application {
 
     private Bambam bambam;
 
-    public Main() {
-        try {
-            bambam = new Bambam();
-        } catch (IOException | BambamException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void start(Stage stage) {
+        try {
+            bambam = new Bambam(); // Initialize here, can handle exceptions
+        } catch (IOException | BambamException e) {
+            e.printStackTrace();
+            return; // Stop app if Bambam fails to initialize
+        }
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/MainWindow.fxml"));
             AnchorPane ap = fxmlLoader.load();

@@ -11,7 +11,7 @@ import bambam.TaskStorage;
  * Represents the list command which is a type of Command.
  */
 public class ListCommand extends Command {
-
+    private String taskListString;
     public ListCommand() {
         super(false);
     }
@@ -19,6 +19,12 @@ public class ListCommand extends Command {
     @Override
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
-        messages.printTaskList();
+        taskListString = taskList.getTaskListString();
+    }
+
+    @Override
+    public String getString() {
+        return "Here are the tasks in your list:\n" +
+                taskListString;
     }
 }

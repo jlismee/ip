@@ -55,7 +55,7 @@ public class DialogBox extends HBox {
         return new DialogBox(text, img);
     }
 
-    public static DialogBox getBambamDialog(String text, Image img) {
+    public static DialogBox getBambamDialog(String text, Image img, String commandType) {
         var db = new DialogBox(text, img);
         db.flip();
         return db;
