@@ -26,6 +26,10 @@ public class DeadlineCommand extends Command {
     @Override
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
+
+        assert (taskDescription != null && !taskDescription.isEmpty()) :
+                "Task Description cannot be null or empty";
+
         String[] deadlineDetails = taskDescription.split(" /by ", 2);
         if (deadlineDetails.length < 2) {
             throw new BambamException("Oopsies, time details of deadline can't be empty");

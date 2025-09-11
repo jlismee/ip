@@ -29,6 +29,8 @@ public class TaskList {
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public Task getTask(int index) throws BambamException {
+        assert index >= 0 : "Task index cannot be negative: " + index;
+
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
@@ -41,6 +43,8 @@ public class TaskList {
      * @param newTask The new task to be added to the task list.
      */
     public void addTaskToList(Task newTask) {
+        assert newTask != null : "Null task cannot be added to task list";
+
         taskList.add(newTask);
     }
 
@@ -50,6 +54,8 @@ public class TaskList {
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public void deleteTaskFromList(int index) throws BambamException {
+        assert index >= 0 : "Task index cannot be negative: " + index;
+
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
@@ -64,6 +70,8 @@ public class TaskList {
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public Task markTaskAsDone(int index) throws BambamException {
+        assert index >= 0 : "Task index cannot be negative: " + index;
+
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
@@ -80,6 +88,8 @@ public class TaskList {
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public Task markTaskAsUndone(int index) throws BambamException {
+        assert index >= 0 : "Task index cannot be negative: " + index;
+
         if (index >= getTaskSize()) {
             throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
         } else {
@@ -97,12 +107,14 @@ public class TaskList {
      */
     public String findTasks(String keyword) throws BambamException {
         StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < getTaskSize(); i++) {
             String taskDescription = getTask(i).getTaskDescription();
             if (taskDescription.contains(keyword)) {
                 sb.append(i + 1).append(". ").append(getTask(i).printTaskString()).append("\n");
             }
         }
+
         return sb.toString();
     }
 
