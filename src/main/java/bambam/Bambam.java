@@ -27,15 +27,17 @@ public class Bambam {
      */
     public void communication() throws BambamException, IOException {
         messages.printGreetings();
-        Parser parser = new Parser();
-        boolean isExit = false;
 
-        while (!isExit) {
+        Parser parser = new Parser();
+        boolean isExitCommand = false;
+
+        while (!isExitCommand) {
             String input = messages.getInput();
             try {
                 Command command = parser.parse(input);
                 command.execute(storage, messages, taskList);
-                isExit = command.getIsExit();
+
+                isExitCommand = command.getIsExitCommand();
             } catch (BambamException e) {
                 messages.printErrorMessage(e.getMessage());
             }
@@ -58,6 +60,7 @@ public class Bambam {
      */
     public String getResponse(String input) {
         Parser p = new Parser();
+
         try {
             Command c = p.parse(input);
             c.execute(storage, messages, taskList);
@@ -68,7 +71,10 @@ public class Bambam {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
+
+
     public String getCommandType() {
         return commandType;
     }

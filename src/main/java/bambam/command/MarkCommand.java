@@ -29,6 +29,7 @@ public class MarkCommand extends Command {
                 "Task Number provided is not in the Task List:" + taskNumber;
 
         task = taskList.markTaskAsDone(index);
+
         storage.saveTasks(taskList);
     }
 

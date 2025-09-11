@@ -31,12 +31,16 @@ public class DeadlineCommand extends Command {
                 "Task Description cannot be null or empty";
 
         String[] deadlineDetails = taskDescription.split(" /by ", 2);
+
         if (deadlineDetails.length < 2) {
             throw new BambamException("Oopsies, time details of deadline can't be empty");
         }
+
         newDeadline = new Deadlines(deadlineDetails[0], deadlineDetails[1]);
         taskList.addTaskToList(newDeadline);
+
         taskListSize = taskList.getTaskSize();
+
         storage.saveTasks(taskList);
     }
 
@@ -44,6 +48,6 @@ public class DeadlineCommand extends Command {
     public String getString() {
         return "Got it. I've added this task:\n" +
                 "    " + newDeadline.printTaskString() + "\n" +
-                "Now you have " + taskListSize+ " tasks in the list.\n";
+                "Now you have " + taskListSize + " tasks in the list.\n";
     }
 }

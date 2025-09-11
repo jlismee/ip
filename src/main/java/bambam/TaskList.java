@@ -77,6 +77,7 @@ public class TaskList {
         } else {
             Task task = getTask(index);
             task.markAsDone();
+
            return task;
         }
     }
@@ -95,6 +96,7 @@ public class TaskList {
         } else {
             Task task = getTask(index);
             task.markAsUndone();
+
             return task;
         }
     }
@@ -110,8 +112,12 @@ public class TaskList {
 
         for (int i = 0; i < getTaskSize(); i++) {
             String taskDescription = getTask(i).getTaskDescription();
+
             if (taskDescription.contains(keyword)) {
-                sb.append(i + 1).append(". ").append(getTask(i).printTaskString()).append("\n");
+                sb.append(i + 1)
+                        .append(". ")
+                        .append(getTask(i).printTaskString())
+                        .append("\n");
             }
         }
 
@@ -125,9 +131,14 @@ public class TaskList {
      */
     public String getTaskListString() throws BambamException {
         StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < getTaskSize(); i++) {
-            sb.append(i + 1).append(". ").append(getTask(i).printTaskString()).append("\n");
+            sb.append(i + 1)
+                    .append(". ")
+                    .append(getTask(i).printTaskString())
+                    .append("\n");
         }
+
         return sb.toString();
     }
 }

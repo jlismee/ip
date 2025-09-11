@@ -31,7 +31,9 @@ public class ToDoCommand extends Command {
 
         newToDo = new ToDos(taskDescription);
         taskList.addTaskToList(newToDo);
+
         taskListSize = taskList.getTaskSize();
+
         storage.saveTasks(taskList);
     }
 
@@ -39,6 +41,6 @@ public class ToDoCommand extends Command {
     public String getString() {
         return "Got it. I've added this task:\n" +
                 "    " + newToDo.printTaskString() + "\n" +
-                "Now you have " + taskListSize+ " tasks in the list.\n";
+                "Now you have " + taskListSize + " tasks in the list.\n";
     }
 }

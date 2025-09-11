@@ -7,30 +7,33 @@ import java.time.format.DateTimeFormatter;
  * Represents events which is a type of Task.
  */
 public class Events extends Task {
-    private LocalDateTime from;
-    private LocalDateTime to;
+    private LocalDateTime fromTime;
+    private LocalDateTime toTime;
+
     private static final DateTimeFormatter DATE_TIME_FILE_FORMAT =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
 
     public Events(String taskDescription, String from, String to) {
         super(taskDescription);
-        this.from = getLocalDateTime(from);
-        this.to = getLocalDateTime(to);
+        this.fromTime = getLocalDateTime(from);
+        this.toTime = getLocalDateTime(to);
     }
 
-    // function to get bambam.task.Events bambam.task.Task String
     @Override
     public String printTaskString() {
-        String fromString = printLocalDateTime(from);
-        String toString = printLocalDateTime(to);
-        return "[E]" + super.printTaskString() + " (from: " + fromString + " to: " + toString + ")";
+        String fromTimeString = printLocalDateTime(fromTime);
+        String toTimeString = printLocalDateTime(toTime);
+
+        return "[E]" + super.printTaskString() + " (from: " +
+                fromTimeString + " to: " + toTimeString + ")";
     }
 
-    // Return bambam.task.Events task string to be saved in the hard disk
     @Override
     public String taskStorageString() {
-        String fromString = from.format(DATE_TIME_FILE_FORMAT);
-        String toString = to.format(DATE_TIME_FILE_FORMAT);
-        return "E | " + super.taskStorageString() + " | " + fromString + " to " + toString;
+        String fromTimeString = fromTime.format(DATE_TIME_FILE_FORMAT);
+        String toTimeString = toTime.format(DATE_TIME_FILE_FORMAT);
+
+        return "E | " + super.taskStorageString() + " | " +
+                fromTimeString + " to " + toTimeString;
     }
 }

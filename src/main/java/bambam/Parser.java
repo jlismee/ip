@@ -36,8 +36,7 @@ public class Parser {
             return new ListCommand();
         case "mark":
             if (commands.length < 2) {
-                throw new BambamException("Oopsies, please provide the task number " +
-                        "to be marked as done");
+                throw new BambamException("Oopsies, please provide the task number to mark as done");
             }
             taskNumber = Integer.parseInt(commands[1]);
             return new MarkCommand(taskNumber);
@@ -61,8 +60,7 @@ public class Parser {
             return new EventCommand(commands[1]);
         case "delete":
             if (commands.length < 2) {
-                throw new BambamException("Oopsies, please provide the task number " +
-                        "to mark as undone");
+                throw new BambamException("Oopsies, please provide the task number to mark as undone");
             }
             taskNumber = Integer.parseInt(commands[1]);
             return new DeleteCommand(taskNumber);

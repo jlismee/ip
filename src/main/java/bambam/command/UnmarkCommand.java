@@ -29,6 +29,7 @@ public class UnmarkCommand extends Command {
                 "Task Number provided is not in the Task List:" + taskNumber;
 
         task = taskList.markTaskAsUndone(index);
+
         storage.saveTasks(taskList);
     }
 

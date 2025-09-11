@@ -54,10 +54,12 @@ public class TaskStorage {
         while (scanner.hasNext()) {
             String taskString = scanner.nextLine();
             String[] taskCommands = taskString.split(" \\| ", 4);
+
             String taskType = taskCommands[0];
             boolean isDone = taskCommands[1].equals("Done");
 
             Task task = null;
+
             switch (taskType) {
             case "T":
                 task = new ToDos(taskCommands[2]);
@@ -82,6 +84,7 @@ public class TaskStorage {
         }
 
         scanner.close();
+
         return taskList;
     }
 
@@ -93,6 +96,7 @@ public class TaskStorage {
      */
     public void saveTasks(TaskList taskList) throws IOException, BambamException {
         FileWriter fw = new FileWriter(FILE_PATH);
+
         for (int i = 0; i < taskList.getTaskSize(); i++) {
             Task task = taskList.getTask(i);
 
@@ -100,6 +104,7 @@ public class TaskStorage {
 
             fw.write(task.taskStorageString() + "\n");
         }
+
         fw.close();
     }
 

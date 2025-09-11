@@ -51,10 +51,23 @@ public class DialogBox extends HBox {
         dialog.getStyleClass().add("reply-label");
     }
 
+    /**
+     * Returns a DialogBox representing the user's chat.
+     * @param text The test of the chat.
+     * @param img The user's profile image.
+     * @return A DialogBox customised for the user.
+     */
     public static DialogBox getUserDialog(String text, Image img) {
         return new DialogBox(text, img);
     }
 
+    /**
+     * Returns a DialogBox representing Bambam's chat.
+     * @param text The test of the chat.
+     * @param img The profile image of Bambam.
+     * @param commandType The type of command associated with this dialog.
+     * @return A DialogBox customised for Bambam.
+     */
     public static DialogBox getBambamDialog(String text, Image img, String commandType) {
         var db = new DialogBox(text, img);
         db.flip();

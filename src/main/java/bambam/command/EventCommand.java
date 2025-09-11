@@ -32,16 +32,22 @@ public class EventCommand extends Command {
                 "Task Description cannot be null or empty";
 
        String[] eventDetails = taskDescription.split(" /from ", 2);
+
         if (eventDetails.length < 2) {
             throw new BambamException("Oopsies, time details of event can't be empty");
         }
+
         String[] eventTimeDetails = eventDetails[1].split(" /to ", 2);
+
         if (eventTimeDetails.length < 2) {
             throw new BambamException("Oopsies, please provide full details of time of event");
         }
+
         newEvent = new Events(eventDetails[0], eventTimeDetails[0], eventTimeDetails[1]);
-        taskList.addTaskToList( newEvent);
+        taskList.addTaskToList(newEvent);
+
         taskListSize = taskList.getTaskSize();
+
         storage.saveTasks(taskList);
     }
 
@@ -49,6 +55,6 @@ public class EventCommand extends Command {
     public String getString() {
         return "Got it. I've added this task:\n" +
                 "    " + newEvent.printTaskString() + "\n" +
-                "Now you have " + taskListSize+ " tasks in the list.\n";
+                "Now you have " + taskListSize + " tasks in the list.\n";
     }
 }
