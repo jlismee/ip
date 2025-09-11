@@ -25,6 +25,10 @@ public class ToDoCommand extends Command {
     @Override
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
+
+        assert (taskDescription != null && !taskDescription.isEmpty()) :
+                "Task Description cannot be null or empty";
+
         newToDo = new ToDos(taskDescription);
         taskList.addTaskToList(newToDo);
 

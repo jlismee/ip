@@ -22,6 +22,10 @@ public class FindCommand extends Command {
     @Override
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
+
+        assert (keyword != null && !keyword.isEmpty()) :
+                "Keyword cannot be null or empty";
+
         taskListString = taskList.findTasks(keyword);
     }
 

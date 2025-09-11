@@ -34,6 +34,9 @@ public class Task {
      * @return The date and time provided by users in string in LocalDateTime.
      */
     public LocalDateTime getLocalDateTime(String dateTime) {
+        assert (dateTime != null && !dateTime.isEmpty()) :
+                "dateTime cannot be null or empty";
+
         String[] dateTimeDetails = dateTime.split(" ", 2);
 
         if (dateTimeDetails.length == 2) {

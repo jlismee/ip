@@ -26,6 +26,9 @@ public class TaskStorage {
      * @throws IOException If an input or output operation fails.
      */
     private void handleFileExistence() throws IOException {
+        assert (FILE_PATH != null && !FILE_PATH.isEmpty()) :
+                "FILE_PATH must not be null or empty";
+
         File file = new File(FILE_PATH);
         File parentDirectory = file.getParentFile();
 
@@ -71,13 +74,13 @@ public class TaskStorage {
                 break;
             }
 
-            if (task != null) {
-                if (isDone) {
-                    task.markAsDone();
-                }
+            assert task != null : "Task should not be null";
 
-                taskList.addTaskToList(task);
+            if (isDone) {
+                task.markAsDone();
             }
+
+            taskList.addTaskToList(task);
         }
 
         scanner.close();
@@ -96,6 +99,9 @@ public class TaskStorage {
 
         for (int i = 0; i < taskList.getTaskSize(); i++) {
             Task task = taskList.getTask(i);
+
+            assert task != null : "Task at index " + i + " is null";
+
             fw.write(task.taskStorageString() + "\n");
         }
 
