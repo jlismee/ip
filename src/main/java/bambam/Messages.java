@@ -40,6 +40,13 @@ public class Messages {
     }
 
     /**
+     * Prints help message to users.
+     */
+    public void printHelpMessage(String helpMessage) {
+        System.out.println(helpMessage);
+    }
+
+    /**
      * Prints error message.
      * @param error The error message.
      */
