@@ -6,6 +6,7 @@ import bambam.command.DeadlineCommand;
 import bambam.command.DeleteCommand;
 import bambam.command.EventCommand;
 import bambam.command.FindCommand;
+import bambam.command.HelpCommand;
 import bambam.command.ListCommand;
 import bambam.command.MarkCommand;
 import bambam.command.ToDoCommand;
@@ -69,6 +70,8 @@ public class Parser {
                 throw new BambamException("Oopsies, please provide a valid keyword");
             }
             return new FindCommand(commands[1]);
+        case "help":
+            return new HelpCommand();
         case "bye":
             return new ByeCommand();
         default:
