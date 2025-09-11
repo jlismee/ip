@@ -27,6 +27,10 @@ public class EventCommand extends Command {
     @Override
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
+
+        assert (taskDescription != null && !taskDescription.isEmpty()) :
+                "Task Description cannot be null or empty";
+
        String[] eventDetails = taskDescription.split(" /from ", 2);
         if (eventDetails.length < 2) {
             throw new BambamException("Oopsies, time details of event can't be empty");

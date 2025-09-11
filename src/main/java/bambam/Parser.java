@@ -23,7 +23,11 @@ public class Parser {
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public Command parse(String fullCommand) throws BambamException {
+        assert (fullCommand != null && !fullCommand.isEmpty()) :
+                "Input command must not be null or empty";
+
         String[] commands = fullCommand.split(" ", 2);
+
         String action = commands[0];
         int taskNumber; // action to be taken
 

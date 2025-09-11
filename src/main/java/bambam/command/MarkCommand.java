@@ -24,6 +24,10 @@ public class MarkCommand extends Command {
     public void execute(TaskStorage storage, Messages messages, TaskList taskList)
             throws BambamException, IOException {
         int index = taskNumber - 1;
+
+        assert (index >= 0 && index < taskList.getTaskSize()) :
+                "Task Number provided is not in the Task List:" + taskNumber;
+
         task = taskList.markTaskAsDone(index);
         storage.saveTasks(taskList);
     }
