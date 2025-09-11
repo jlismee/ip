@@ -11,18 +11,18 @@ import bambam.TaskStorage;
  * Represents the commands given by users.
  */
 public abstract class Command {
-    private boolean isExit;
+    private boolean isExitCommand;
 
-    public Command(boolean isExit) {
-        this.isExit = isExit;
+    public Command(boolean isExitCommand) {
+        this.isExitCommand = isExitCommand;
     }
 
     /**
      * Returns the current status of isExit.
      * @return The boolean on whether the command is an exit command.
      */
-    public boolean getIsExit() {
-        return isExit;
+    public boolean getIsExitCommand() {
+        return isExitCommand;
     }
 
     /**

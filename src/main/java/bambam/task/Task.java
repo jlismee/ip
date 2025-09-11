@@ -6,11 +6,12 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * Represents a Task object with its description and isDone status.
+ * Represents a Task object with its description and isTaskDone status.
  */
 public class Task {
     private String taskDescription;
-    private boolean isDone;
+    private boolean isTaskDone;
+
     private static final DateTimeFormatter DATE_TIME_INPUT_FORMATTER =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
     private static final DateTimeFormatter DATE_INPUT_FORMATTER =
@@ -22,16 +23,19 @@ public class Task {
 
     public Task(String taskDescription) {
         this.taskDescription = taskDescription;
-        this.isDone = false;
+        this.isTaskDone = false;
     }
 
     /**
      * Returns dates and times of Task objects in LocalDateTime.
+     * If only a date is provided, the time is set to the start of the day.
+     *
      * @param dateTime The string of date and time provided by users.
      * @return The date and time provided by users in string in LocalDateTime.
      */
     public LocalDateTime getLocalDateTime(String dateTime) {
         String[] dateTimeDetails = dateTime.split(" ", 2);
+
         if (dateTimeDetails.length == 2) {
             return LocalDateTime.parse(dateTime, DATE_TIME_INPUT_FORMATTER);
         } else {
@@ -42,7 +46,9 @@ public class Task {
 
     /**
      * Returns dates and times of Task objects in LocalDateTime as Strings.
-     * @param dateTime
+     * If the time is exactly midnight, only the date is returned.
+     *
+     * @param dateTime The string of date and time provided by users.
      * @return The string of date and time in LocalDateTime.
      */
     public String printLocalDateTime(LocalDateTime dateTime) {
@@ -58,15 +64,15 @@ public class Task {
      * @return The string of done or undone.
      */
     public String getStatusIcon() {
-        return (isDone ? "X" : " ");
+        return (isTaskDone ? "X" : " ");
     }
 
     /**
-     * Returns isDone boolean.
-     * @return The isDone boolean.
+     * Returns isTaskDone boolean.
+     * @return The isTaskDone boolean.
      */
     public boolean getIsDone() {
-        return isDone;
+        return isTaskDone;
     }
 
     /**
@@ -89,14 +95,14 @@ public class Task {
      * Handles the marking of Task object as done.
      */
     public void markAsDone() {
-        isDone = true;
+        isTaskDone = true;
     }
 
     /**
      * Handles the marking of Task object as undone.
      */
     public void markAsUndone() {
-        isDone = false;
+        isTaskDone = false;
     }
 
     /**
@@ -104,7 +110,7 @@ public class Task {
      * @return The string of a task to be stored in the task storage.
      */
     public String taskStorageString() {
-        return (isDone ? "Done" : "Not Done") + " | " + taskDescription;
+        return (isTaskDone ? "Done" : "Not Done") + " | " + taskDescription;
     }
 
 }

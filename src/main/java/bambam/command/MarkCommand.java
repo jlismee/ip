@@ -25,6 +25,7 @@ public class MarkCommand extends Command {
             throws BambamException, IOException {
         int index = taskNumber - 1;
         task = taskList.markTaskAsDone(index);
+
         storage.saveTasks(taskList);
     }
 

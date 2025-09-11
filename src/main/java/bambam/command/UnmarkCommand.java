@@ -25,6 +25,7 @@ public class UnmarkCommand extends Command {
             throws BambamException, IOException {
         int index = taskNumber - 1;
         task = taskList.markTaskAsUndone(index);
+
         storage.saveTasks(taskList);
     }
 
