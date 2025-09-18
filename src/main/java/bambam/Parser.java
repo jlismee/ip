@@ -27,48 +27,32 @@ public class Parser {
         assert (fullCommand != null && !fullCommand.isEmpty()) :
                 "Input command must not be null or empty";
 
+        fullCommand = fullCommand.trim(); // ChatGPT asked to include this line to trim whitespace
         String[] commands = fullCommand.split(" ", 2);
 
         String action = commands[0];
-        int taskNumber; // action to be taken
 
+        // ChatGPT enhanced by shifting the checks into 2 other methods
         switch (action) {
         case "list":
             return new ListCommand();
         case "mark":
-            if (commands.length < 2) {
-                throw new BambamException("Oopsies, please provide the task number to mark as done");
-            }
-            taskNumber = Integer.parseInt(commands[1]);
-            return new MarkCommand(taskNumber);
+            return new MarkCommand(parseTaskNumber(commands, "mark"));
         case "unmark":
-            taskNumber = Integer.parseInt(commands[1]);
-            return new UnmarkCommand(taskNumber);
+            return new UnmarkCommand(parseTaskNumber(commands, "unmark"));
         case "todo":
-            if (commands.length < 2) {
-                throw new BambamException("Oopsies, description of todo can't be empty");
-            }
+            ensureHasArgs(commands, "todo");
             return new ToDoCommand(commands[1]);
         case "deadline":
-            if (commands.length < 2) {
-                throw new BambamException("Oopsies, description of deadline can't be empty");
-            }
+            ensureHasArgs(commands, "deadline");
             return new DeadlineCommand(commands[1]);
         case "event":
-            if (commands.length < 2) {
-                throw new BambamException("Oopsies, description of event can't be empty");
-            }
+            ensureHasArgs(commands, "event");
             return new EventCommand(commands[1]);
         case "delete":
-            if (commands.length < 2) {
-                throw new BambamException("Oopsies, please provide the task number to mark as undone");
-            }
-            taskNumber = Integer.parseInt(commands[1]);
-            return new DeleteCommand(taskNumber);
+            return new DeleteCommand(parseTaskNumber(commands, "delete"));
         case "find":
-            if (commands.length < 2) {
-                throw new BambamException("Oopsies, please provide a valid keyword");
-            }
+            ensureHasArgs(commands, "find");
             return new FindCommand(commands[1]);
         case "help":
             return new HelpCommand();
@@ -76,7 +60,30 @@ public class Parser {
             return new ByeCommand();
         default:
             throw new BambamException("Sorry I don't get what you're saying, " +
-                    "please provide me with relevant tasks");
+                    "Type 'help' to see available commands");
+        }
+    }
+
+    /**
+     * Ensures that the given command has arguments, otherwise throws an exception.
+     */
+    private void ensureHasArgs(String[] commands, String commandName) throws BambamException {
+        if (commands.length < 2 || commands[1].trim().isEmpty()) {
+            throw new BambamException("Oopsies, description of " + commandName + " can't be empty");
+        }
+    }
+
+    /**
+     * Parses a task number argument safely.
+     */
+    private int parseTaskNumber(String[] commands, String commandName) throws BambamException {
+        if (commands.length < 2) {
+            throw new BambamException("Oopsies, please provide the task number to " + commandName);
+        }
+        try {
+            return Integer.parseInt(commands[1].trim());
+        } catch (NumberFormatException e) {
+            throw new BambamException("Oopsies, task number for '" + commandName + "' must be a valid integer");
         }
     }
 }

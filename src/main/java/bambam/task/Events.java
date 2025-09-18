@@ -17,6 +17,10 @@ public class Events extends Task {
         super(taskDescription);
         this.fromTime = getLocalDateTime(from);
         this.toTime = getLocalDateTime(to);
+
+        if (fromTime.isAfter(toTime)) { // ChatGPT enhanced
+            throw new IllegalArgumentException("Event start time cannot be after end time.");
+        }
     }
 
     @Override

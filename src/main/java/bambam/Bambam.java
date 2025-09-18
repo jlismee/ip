@@ -10,14 +10,16 @@ import bambam.command.Command;
 public class Bambam {
 
     private String commandType;
-    private TaskStorage storage;
-    private TaskList taskList;
-    private Messages messages;
+    private final TaskStorage storage;
+    private final TaskList taskList;
+    private final Messages messages;
+    private final Parser parser;
 
     public Bambam() throws IOException, BambamException {
-        storage = new TaskStorage();
-        taskList = storage.loadTasks();
-        messages = new Messages(taskList);
+        this.storage = new TaskStorage();
+        this.taskList = storage.loadTasks();
+        this.messages = new Messages(taskList);
+        this.parser = new Parser();
     }
 
     /**
@@ -37,7 +39,7 @@ public class Bambam {
                 Command command = parser.parse(input);
                 command.execute(storage, messages, taskList);
 
-                isExitCommand = command.getIsExitCommand();
+                isExitCommand = command.isExitCommand();
             } catch (BambamException e) {
                 messages.printErrorMessage(e.getMessage());
             }
@@ -59,10 +61,8 @@ public class Bambam {
      * Generates a response for the user's chat message.
      */
     public String getResponse(String input) {
-        Parser p = new Parser();
-
         try {
-            Command c = p.parse(input);
+            Command c = parser.parse(input);
             c.execute(storage, messages, taskList);
             commandType = c.getClass().getSimpleName();
             return c.getString();

@@ -4,12 +4,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /**
  * Represents a Task object with its description and isTaskDone status.
  */
 public class Task {
-    private String taskDescription;
+    private final String taskDescription;
     private boolean isTaskDone;
 
     private static final DateTimeFormatter DATE_TIME_INPUT_FORMATTER =
@@ -30,20 +31,24 @@ public class Task {
      * Returns dates and times of Task objects in LocalDateTime.
      * If only a date is provided, the time is set to the start of the day.
      *
-     * @param dateTime The string of date and time provided by users.
+     * @param dateTime The LocalDateTime of date and time provided by users.
      * @return The date and time provided by users in string in LocalDateTime.
      */
     public LocalDateTime getLocalDateTime(String dateTime) {
         assert (dateTime != null && !dateTime.isEmpty()) :
                 "dateTime cannot be null or empty";
 
-        String[] dateTimeDetails = dateTime.split(" ", 2);
-
-        if (dateTimeDetails.length == 2) {
-            return LocalDateTime.parse(dateTime, DATE_TIME_INPUT_FORMATTER);
-        } else {
-            LocalDate deadlineDate = LocalDate.parse(dateTime, DATE_INPUT_FORMATTER);
-            return deadlineDate.atStartOfDay();
+        try {
+            String[] dateTimeDetails = dateTime.split(" ", 2);
+            if (dateTimeDetails.length == 2) {
+                return LocalDateTime.parse(dateTime, DATE_TIME_INPUT_FORMATTER);
+            } else {
+                LocalDate deadlineDate = LocalDate.parse(dateTime, DATE_INPUT_FORMATTER);
+                return deadlineDate.atStartOfDay();
+            }
+        } catch (DateTimeParseException e) { // ChatGPT enhanced to include catch statements
+            throw new IllegalArgumentException(
+                    "Invalid date format. Please use yyyy-MM-dd or yyyy-MM-dd HHmm.");
         }
     }
 
