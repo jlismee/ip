@@ -6,6 +6,7 @@
 ᯓᡣ𐭩 You can add todo, deadline, or event tasks, and Bambam will keep track of them for you! 
 
 *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
+
 **Here are the features available** 
 
 ## Adding Todos
