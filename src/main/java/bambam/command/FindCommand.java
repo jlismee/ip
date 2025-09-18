@@ -31,7 +31,7 @@ public class FindCommand extends Command {
 
     @Override
     public String getString() {
-        return "Here are the matching tasks in your list:\n" +
+        return "🔎 Here are the tasks that match your search:\n" +
                 taskListString;
 
     }

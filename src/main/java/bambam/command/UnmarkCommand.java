@@ -35,8 +35,9 @@ public class UnmarkCommand extends Command {
 
     @Override
     public String getString() {
-        return "OK, I've marked this task as not done yet:\n" +
-                "    " + task.printTaskString() + "\n";
+        return "😅 Oops! This task is now marked as not done:\n" +
+                "    " + task.printTaskString() + "\n" +
+                "No worries, you can still get it done! 🌸💖\n";
     }
 }
 

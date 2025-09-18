@@ -35,7 +35,7 @@ public class DeleteCommand extends Command {
 
     @Override
     public String getString() {
-        return "Noted. I've removed this task:\n" +
+        return "🗑️ Oops! I've removed this task:\n" +
                 "    " + task.printTaskString() + "\n" +
                 "Now you have " + taskListSize + " tasks in the list.\n";
     }
