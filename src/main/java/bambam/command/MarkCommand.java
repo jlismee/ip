@@ -35,7 +35,8 @@ public class MarkCommand extends Command {
 
     @Override
     public String getString() {
-        return "Nice! I've marked this task as done:\n" +
-                "    " + task.printTaskString() + "\n";
+        return "✅ Yay! I've marked this task as done:\n" +
+                "    " + task.printTaskString() + "\n" +
+                "Keep it up! 🌸💖\n";
     }
 }

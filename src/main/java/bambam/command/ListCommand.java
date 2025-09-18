@@ -24,7 +24,7 @@ public class ListCommand extends Command {
 
     @Override
     public String getString() {
-        return "Here are the tasks in your list:\n" +
+        return "📋 Here are the tasks in your list, all organized for you:\n" +
                 taskListString;
     }
 }

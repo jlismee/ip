@@ -39,8 +39,8 @@ public class ToDoCommand extends Command {
 
     @Override
     public String getString() {
-        return "Got it. I've added this task:\n" +
+        return "Got it! Your task has been added 🌸\n" +
                 "    " + newToDo.printTaskString() + "\n" +
-                "Now you have " + taskListSize + " tasks in the list.\n";
+                "Now you have " + taskListSize + " tasks in the list. \uD83D\uDC96\n";
     }
 }

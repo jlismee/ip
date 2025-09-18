@@ -14,33 +14,35 @@ public class HelpCommand extends Command {
     }
 
     private String getHelpMessage() {
-        return "User Guide to Bambam\n"
+        return "🌸 Hi there! Here's your user guide to Bambam commands 💖\n"
                 + "\n"
                 + "Commands you can use: \n"
                 + " - list\n"
-                + "     Show all tasks\n"
+                + "     \uD83D\uDCCB Show all tasks\n"
                 + " - todo <desc>\n"
-                + "     Add a todo task\n"
+                + "     \uD83D\uDCDD Add a todo task\n"
                 + " - deadline <desc> /by <datetime>\n"
-                + "     Add a deadline task\n"
+                + "     ⏰ Add a deadline task\n"
                 + " - event <desc> /from <datetime> /to <datetime>\n"
-                + "     Add an event task\n"
+                + "     \uD83C\uDF89 Add an event task\n"
                 + " - mark <x>\n"
-                + "     Mark task x as done\n"
+                + "     ✅ Mark task x as done\n"
                 + " - unmark <x>\n"
-                + "     Mark task x as undone\n"
+                + "     \uD83D\uDE05 Mark task x as undone\n"
                 + " - delete <x>\n"
-                + "     Delete task x\n"
+                + "     \uD83D\uDDD1 Delete task x\n"
                 + " - find <keyword>\n"
-                + "     Find task containing keyword\n"
+                + "     \uD83D\uDD0D Find task containing keyword\n"
                 + " - help\n"
-                + "     Obtain User Guide to Bambam\n"
+                + "     \uD83D\uDCD6 Obtain User Guide to Bambam\n"
                 + "\n"
-                + "Do note that for datetime, it should be given in the format of:\n"
+                + "\uD83D\uDCA1 Do note that for datetime, it should be given in the format of:\n"
                 + "     Date Only -> yyyy-MM-dd\n"
                 + "                 (eg: 2025-01-01)\n"
                 + "     Date + Time -> yyyy-MM-dd HHmm\n"
-                + "                 (eg: 2025-01-01 1800)\n";
+                + "                 (eg: 2025-01-01 1800)\n"
+                + "\n"
+                + "Have fun managing your tasks with me! 🌸💖";
     }
 
     @Override
