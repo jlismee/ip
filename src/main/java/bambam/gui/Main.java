@@ -31,6 +31,7 @@ public class Main extends Application {
             AnchorPane ap = fxmlLoader.load();
             Scene scene = new Scene(ap);
             stage.setScene(scene);
+            stage.setTitle("⋆.˚✮Bambam✮˚.⋆"); // sets title of gui
             fxmlLoader.<MainWindow>getController().setBambam(bambam);  // inject the Duke instance
 
             stage.setMinHeight(220);

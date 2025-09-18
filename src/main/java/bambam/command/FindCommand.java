@@ -12,7 +12,7 @@ import bambam.TaskStorage;
  */
 public class FindCommand extends Command {
     private String taskListString;
-    private String keyword;
+    private final String keyword;
 
     public FindCommand(String keyword) {
         super(false);

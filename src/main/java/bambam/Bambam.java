@@ -27,7 +27,7 @@ public class Bambam {
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      * @throws IOException If an input or output operation fails.
      */
-    public void communication() throws BambamException, IOException {
+    public void communication() throws IOException {
         messages.printGreetings();
 
         Parser parser = new Parser();
