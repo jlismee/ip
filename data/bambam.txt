@@ -1,8 +1,4 @@
 T | Not Done | read book
 D | Not Done | return book | 2019-01-01 0000
 D | Not Done | buy bread | 2020-01-01 1800
-T | Not Done | laff
 D | Not Done | homework | 2025-06-06 1800
-T | Not Done | hi
-D | Not Done | lala | 2025-01-01 0000
-T | Not Done | hi

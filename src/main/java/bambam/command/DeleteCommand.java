@@ -37,6 +37,6 @@ public class DeleteCommand extends Command {
     public String getString() {
         return "🗑️ Oops! I've removed this task:\n" +
                 "    " + task.printTaskString() + "\n" +
-                "Now you have " + taskListSize + " tasks in the list.\n";
+                "Now you have " + taskListSize + " tasks in the list. \uD83D\uDC96\n";
     }
 }
