@@ -51,6 +51,6 @@ public class Messages {
      * @param error The error message.
      */
     public void printErrorMessage(String error) {
-        System.out.println("bambam.BambamException: " + error);
+        System.out.println("BambamException: " + error);
     }
 }

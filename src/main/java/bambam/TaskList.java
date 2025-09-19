@@ -32,7 +32,7 @@ public class TaskList {
         assert index >= 0 : "Task index cannot be negative: " + index;
 
         if (index >= getTaskSize()) {
-            throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
+            throw new BambamException("Oopsies, this is a invalid task Number");
         } else {
             return taskList.get(index);
         }
@@ -57,7 +57,7 @@ public class TaskList {
         assert index >= 0 : "Task index cannot be negative: " + index;
 
         if (index >= getTaskSize()) {
-            throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
+            throw new BambamException("Oopsies, this is a invalid task Number");
         } else {
             taskList.remove(index);
         }
@@ -73,7 +73,7 @@ public class TaskList {
         assert index >= 0 : "Task index cannot be negative: " + index;
 
         if (index >= getTaskSize()) {
-            throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
+            throw new BambamException("Oopsies, this is a invalid task Number");
         } else {
             Task task = getTask(index);
             task.markAsDone();
@@ -92,7 +92,7 @@ public class TaskList {
         assert index >= 0 : "Task index cannot be negative: " + index;
 
         if (index >= getTaskSize()) {
-            throw new BambamException("Oopsies, this is a invalid bambam.task.Task Number");
+            throw new BambamException("Oopsies, this is a invalid task Number");
         } else {
             Task task = getTask(index);
             task.markAsUndone();
@@ -130,7 +130,7 @@ public class TaskList {
      * @throws BambamException If there is an error related to the passing of input or the chatbot.
      */
     public String getTaskListString() throws BambamException {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(); // ChatGPT enhanced code, it recommended use of StringBuilder
 
         for (int i = 0; i < getTaskSize(); i++) {
             sb.append(i + 1)

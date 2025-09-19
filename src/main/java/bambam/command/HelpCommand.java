@@ -28,7 +28,7 @@ public class HelpCommand extends Command {
                 + " - mark <x>\n"
                 + "     ✅ Mark task x as done\n"
                 + " - unmark <x>\n"
-                + "     \uD83D\uDE05 Mark task x as undone\n"
+                + "     ❌ Mark task x as undone\n"
                 + " - delete <x>\n"
                 + "     \uD83D\uDDD1 Delete task x\n"
                 + " - find <keyword>\n"
